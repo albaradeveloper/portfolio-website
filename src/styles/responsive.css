@@ -260,10 +260,17 @@
   }
 }
 
-/* Hide floating badges on very small screens */
-@media (max-width: 480px) {
-  .avatar-section div[style*="position: absolute"] {
+/* Hide floating badges on mobile screens */
+@media (max-width: 768px) {
+  .floating-badge {
     display: none !important;
+  }
+}
+
+/* Adjust floating badges size on smaller desktop screens */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .floating-badge {
+    transform: scale(0.8) !important;
   }
 }
 /

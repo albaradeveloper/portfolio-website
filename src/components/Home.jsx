@@ -348,7 +348,7 @@ const Home = ({ setActiveSection }) => {
               </div>
               
               {/* Floating skill badges */}
-              <div style={{
+              <div className="floating-badge" style={{
                 position: 'absolute',
                 top: '10px',
                 right: '-20px',
@@ -359,7 +359,7 @@ const Home = ({ setActiveSection }) => {
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                fontSize: '1.75rem',
+                fontSize: '1.5rem',
                 boxShadow: '0 8px 20px rgba(251, 191, 36, 0.4)',
                 animation: 'bounce 2s infinite',
                 border: '4px solid white'
@@ -367,7 +367,7 @@ const Home = ({ setActiveSection }) => {
                 ⚡
               </div>
               
-              <div style={{
+              <div className="floating-badge" style={{
                 position: 'absolute',
                 bottom: '20px',
                 left: '-30px',
@@ -378,7 +378,7 @@ const Home = ({ setActiveSection }) => {
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                fontSize: '1.5rem',
+                fontSize: '1.25rem',
                 boxShadow: '0 8px 20px rgba(16, 185, 129, 0.4)',
                 animation: 'pulse 3s infinite',
                 border: '4px solid white'
@@ -386,7 +386,7 @@ const Home = ({ setActiveSection }) => {
                 💻
               </div>
               
-              <div style={{
+              <div className="floating-badge" style={{
                 position: 'absolute',
                 top: '50%',
                 left: '-40px',
@@ -397,7 +397,7 @@ const Home = ({ setActiveSection }) => {
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                fontSize: '1.25rem',
+                fontSize: '1rem',
                 boxShadow: '0 8px 20px rgba(139, 92, 246, 0.4)',
                 animation: 'bounce 2.5s infinite',
                 border: '4px solid white'
