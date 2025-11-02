@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { useTheme } from '../contexts/ThemeContext';
 
 const Navbar = ({ activeSection, setActiveSection }) => {
@@ -138,13 +138,15 @@ const Navbar = ({ activeSection, setActiveSection }) => {
     backgroundColor: currentColors.navbarBg,
     backdropFilter: 'blur(25px)',
     WebkitBackdropFilter: 'blur(25px)',
-    borderRadius: '0 0 1.5rem 1.5rem',
+    borderRadius: '0 0 1.25rem 1.25rem',
     border: `1px solid ${currentColors.border}`,
-    boxShadow: `0 20px 40px ${currentColors.shadowHover}`,
-    marginTop: '0.5rem',
+    boxShadow: `0 15px 35px ${currentColors.shadowHover}`,
+    marginTop: '0.25rem',
     overflow: 'hidden',
     animation: isMenuOpen ? 'slideDown 0.4s cubic-bezier(0.4, 0, 0.2, 1)' : 'slideUp 0.3s ease-in',
-    transformOrigin: 'top'
+    transformOrigin: 'top',
+    maxHeight: '80vh',
+    overflowY: 'auto'
   };
 
   const mobileMenuItemStyle = (isActive) => ({
@@ -152,13 +154,13 @@ const Navbar = ({ activeSection, setActiveSection }) => {
     alignItems: 'center',
     justifyContent: 'flex-end',
     width: '100%',
-    padding: '1rem 1.5rem',
-    borderRadius: '1rem',
-    fontSize: '1.1rem',
+    padding: '0.875rem 1.25rem',
+    borderRadius: '0.75rem',
+    fontSize: '1rem',
     fontWeight: '700',
     border: 'none',
     cursor: 'pointer',
-    marginBottom: '0.5rem',
+    marginBottom: '0.25rem',
     background: isActive 
       ? 'linear-gradient(135deg, #2563eb 0%, #7c3aed 100%)' 
       : 'transparent',
@@ -166,7 +168,8 @@ const Navbar = ({ activeSection, setActiveSection }) => {
     transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
     gap: '0.75rem',
     boxShadow: isActive ? '0 4px 12px rgba(37, 99, 235, 0.3)' : 'none',
-    transform: isActive ? 'translateX(-4px)' : 'translateX(0)'
+    transform: isActive ? 'translateX(-4px)' : 'translateX(0)',
+    minHeight: '44px'
   });
 
   return (
@@ -320,7 +323,7 @@ const Navbar = ({ activeSection, setActiveSection }) => {
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div style={mobileMenuStyle}>
+          <div className="mobile-menu" style={mobileMenuStyle}>
             {/* Mobile menu header */}
             <div style={{
               padding: '1rem 1.5rem 0.5rem',
@@ -345,6 +348,7 @@ const Navbar = ({ activeSection, setActiveSection }) => {
                     setActiveSection(item.id);
                     setIsMenuOpen(false);
                   }}
+                  className="mobile-menu-item"
                   style={{
                     ...mobileMenuItemStyle(activeSection === item.id),
                     animationDelay: `${index * 0.1}s`
