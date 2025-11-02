@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import './App.css';
 import './styles/theme.css';
+import './styles/responsive.css';
 import { ThemeProvider, useTheme } from './contexts/ThemeContext';
 import Navbar from './components/Navbar';
 import Home from './components/Home';
@@ -11,7 +12,7 @@ import Footer from './components/Footer';
 
 const AppContent = () => {
   const [activeSection, setActiveSection] = useState('home');
-  const { isDarkMode, currentColors } = useTheme();
+  const { currentColors } = useTheme();
 
   const renderSection = () => {
     switch (activeSection) {
