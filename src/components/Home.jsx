@@ -42,24 +42,23 @@ const Home = ({ setActiveSection }) => {
       <div style={{
         maxWidth: '1200px',
         margin: '0 auto',
-        padding: '0 1rem',
-        paddingTop: '2rem',
-        paddingBottom: '3rem',
+        padding: '0 1.5rem',
+        paddingTop: '3rem',
+        paddingBottom: '5rem',
         position: 'relative',
         zIndex: 1
-      }}>
+      }} className="home-container">
         <div style={{
-          display: 'flex',
-          flexDirection: 'column',
-          gap: '2rem',
+          display: 'grid',
+          gridTemplateColumns: '1fr 1fr',
+          gap: '4rem',
           alignItems: 'center',
-          minHeight: '70vh'
+          minHeight: '80vh'
         }} className="main-grid">
           {/* Text Content */}
           <div style={{ 
-            textAlign: 'center',
-            padding: '1rem 0',
-            width: '100%'
+            textAlign: 'right',
+            padding: '2rem 0'
           }} className="text-content">
             <div style={{ marginBottom: '2rem' }}>
               <span style={{
@@ -79,11 +78,11 @@ const Home = ({ setActiveSection }) => {
             </div>
             
             <h1 style={{
-              fontSize: 'clamp(2rem, 6vw, 3.5rem)',
+              fontSize: 'clamp(2.5rem, 8vw, 4rem)',
               fontWeight: '900',
               color: currentColors.text,
-              marginBottom: '1rem',
-              lineHeight: '1.2',
+              marginBottom: '1.5rem',
+              lineHeight: '1.1',
               letterSpacing: '-0.02em'
             }}>
               أنا{' '}
@@ -99,9 +98,9 @@ const Home = ({ setActiveSection }) => {
             </h1>
             
             <h2 style={{
-              fontSize: 'clamp(1.1rem, 3.5vw, 1.5rem)',
+              fontSize: 'clamp(1.25rem, 4vw, 1.75rem)',
               color: currentColors.textSecondary,
-              marginBottom: '1.5rem',
+              marginBottom: '2rem',
               fontWeight: '600',
               lineHeight: '1.4'
             }}>
@@ -109,13 +108,12 @@ const Home = ({ setActiveSection }) => {
             </h2>
             
             <p style={{
-              fontSize: 'clamp(1rem, 2.5vw, 1.125rem)',
+              fontSize: '1.125rem',
               color: currentColors.textSecondary,
-              marginBottom: '2rem',
-              lineHeight: '1.6',
-              maxWidth: '90%',
-              margin: '0 auto 2rem auto',
-              padding: '0 0.5rem'
+              marginBottom: '2.5rem',
+              lineHeight: '1.625',
+              maxWidth: '48rem',
+              margin: '0 0 2.5rem 0'
             }} className="description-text">
                أقوم بتطوير مواقع ويب وتطبيقات حديثة باستخدام أحدث التقنيات مثل React و NextJS و Flutter. 
               أسعى لتقديم حلول مبتكرة وتجارب مستخدم استثنائية.
@@ -123,27 +121,23 @@ const Home = ({ setActiveSection }) => {
             
             <div style={{ 
               display: 'flex', 
-              flexDirection: 'column', 
-              gap: '0.75rem', 
-              justifyContent: 'center', 
-              marginTop: '2rem',
-              maxWidth: '100%',
-              width: '100%',
-              padding: '0 1rem'
+              gap: '1rem', 
+              justifyContent: 'flex-start', 
+              marginTop: '3rem',
+              flexWrap: 'wrap'
             }} className="buttons-container">
               <button 
                 onClick={() => setActiveSection('contact')}
                 style={{
                   background: 'linear-gradient(135deg, #2563eb 0%, #7c3aed 50%, #9333ea 100%)',
                   color: 'white',
-                  padding: '1rem 2rem',
-                  borderRadius: '0.75rem',
+                  padding: '1.25rem 2.5rem',
+                  borderRadius: '1rem',
                   fontWeight: '700',
                   border: 'none',
                   cursor: 'pointer',
                   transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
-                  fontSize: 'clamp(1rem, 2.5vw, 1.1rem)',
-                  width: '100%',
+                  fontSize: '1.1rem',
                   boxShadow: '0 8px 25px rgba(37, 99, 235, 0.3)',
                   position: 'relative',
                   overflow: 'hidden'
@@ -168,13 +162,12 @@ const Home = ({ setActiveSection }) => {
                   background: currentColors.cardBg,
                   color: currentColors.accent,
                   border: `2px solid ${currentColors.accent}30`,
-                  padding: '1rem 2rem',
-                  borderRadius: '0.75rem',
+                  padding: '1.25rem 2.5rem',
+                  borderRadius: '1rem',
                   fontWeight: '700',
                   cursor: 'pointer',
                   transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
-                  fontSize: 'clamp(1rem, 2.5vw, 1.1rem)',
-                  width: '100%',
+                  fontSize: '1.1rem',
                   backdropFilter: 'blur(10px)',
                   boxShadow: `0 4px 15px ${currentColors.shadow}`
                 }}
@@ -198,15 +191,14 @@ const Home = ({ setActiveSection }) => {
             {/* Social Links */}
             <div style={{ 
               display: 'flex', 
-              justifyContent: 'center', 
-              gap: '1rem', 
-              marginTop: '2rem',
-              flexWrap: 'wrap'
+              justifyContent: 'flex-start', 
+              gap: '1.5rem', 
+              marginTop: '3rem'
             }} className="social-links">
               {/* WhatsApp */}
               <a href="https://wa.me/249926699368" target="_blank" rel="noopener noreferrer" style={{
-                width: '3rem',
-                height: '3rem',
+                width: '3.5rem',
+                height: '3.5rem',
                 backgroundColor: currentColors.cardBg,
                 borderRadius: '50%',
                 display: 'flex',
@@ -237,8 +229,8 @@ const Home = ({ setActiveSection }) => {
 
               {/* Email */}
               <a href="mailto:braaomer98@gmail.com" style={{
-                width: '3rem',
-                height: '3rem',
+                width: '3.5rem',
+                height: '3.5rem',
                 backgroundColor: currentColors.cardBg,
                 borderRadius: '50%',
                 display: 'flex',
@@ -269,8 +261,8 @@ const Home = ({ setActiveSection }) => {
 
               {/* X (Twitter) */}
               <a href="https://x.com/braaomer98" target="_blank" rel="noopener noreferrer" style={{
-                width: '3rem',
-                height: '3rem',
+                width: '3.5rem',
+                height: '3.5rem',
                 backgroundColor: currentColors.cardBg,
                 borderRadius: '50%',
                 display: 'flex',
@@ -305,14 +297,13 @@ const Home = ({ setActiveSection }) => {
           <div style={{ 
             display: 'flex', 
             justifyContent: 'center',
-            padding: '1rem 0',
-            width: '100%'
+            padding: '2rem 0'
           }} className="avatar-section">
             <div style={{ position: 'relative' }}>
               {/* Main avatar container */}
               <div style={{
-                width: 'clamp(250px, 60vw, 320px)',
-                height: 'clamp(250px, 60vw, 320px)',
+                width: '320px',
+                height: '320px',
                 background: 'linear-gradient(135deg, #2563eb 0%, #7c3aed 50%, #9333ea 100%)',
                 borderRadius: '50%',
                 padding: '6px',
@@ -420,16 +411,15 @@ const Home = ({ setActiveSection }) => {
         {/* Stats */}
         <div style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(2, 1fr)',
-          gap: '1rem',
-          marginTop: '3rem',
-          padding: '2rem 1rem',
+          gridTemplateColumns: 'repeat(4, 1fr)',
+          gap: '1.5rem',
+          marginTop: '6rem',
+          padding: '3rem 2rem',
           background: currentColors.cardBg,
-          borderRadius: '1.5rem',
+          borderRadius: '2rem',
           backdropFilter: 'blur(20px)',
           border: `1px solid ${currentColors.cardBorder}`,
-          boxShadow: `0 10px 30px ${currentColors.shadow}`,
-          width: '100%'
+          boxShadow: `0 20px 40px ${currentColors.shadow}`
         }} className="stats-grid">
           <div style={{ 
             textAlign: 'center',
@@ -443,7 +433,7 @@ const Home = ({ setActiveSection }) => {
           onMouseLeave={(e) => e.target.style.transform = 'translateY(0)'}
           >
             <div style={{ 
-              fontSize: 'clamp(2rem, 5vw, 2.5rem)', 
+              fontSize: '2.5rem', 
               fontWeight: '900', 
               background: 'linear-gradient(135deg, #2563eb, #9333ea)',
               WebkitBackgroundClip: 'text',
