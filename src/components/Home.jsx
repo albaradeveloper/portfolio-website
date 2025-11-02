@@ -378,7 +378,7 @@ const Home = ({ setActiveSection }) => {
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                fontSize: '1rem',
+                fontSize: '0.9rem',
                 boxShadow: '0 8px 20px rgba(16, 185, 129, 0.4)',
                 animation: 'pulse 3s infinite',
                 border: '3px solid white'
