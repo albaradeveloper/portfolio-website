@@ -589,4 +589,44 @@
   .main-grid {
     min-height: 50vh !important;
   }
+}/* Fl
+oating badges specific styling */
+.floating-badge {
+  font-family: 'Apple Color Emoji', 'Segoe UI Emoji', 'Noto Color Emoji', sans-serif !important;
+  line-height: 1 !important;
+}
+
+/* Ensure emoji don't scale beyond their containers */
+.floating-badge > * {
+  max-width: 100% !important;
+  max-height: 100% !important;
+  object-fit: contain !important;
+}
+
+/* Desktop specific adjustments */
+@media (min-width: 1200px) {
+  .floating-badge {
+    transform: scale(1) !important;
+  }
+}
+
+/* Large desktop adjustments */
+@media (min-width: 1400px) {
+  .floating-badge:first-of-type {
+    width: 75px !important;
+    height: 75px !important;
+    font-size: 1.3rem !important;
+  }
+  
+  .floating-badge:nth-of-type(2) {
+    width: 65px !important;
+    height: 65px !important;
+    font-size: 1.1rem !important;
+  }
+  
+  .floating-badge:last-of-type {
+    width: 55px !important;
+    height: 55px !important;
+    font-size: 1rem !important;
+  }
 }

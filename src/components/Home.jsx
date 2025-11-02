@@ -352,17 +352,17 @@ const Home = ({ setActiveSection }) => {
                 position: 'absolute',
                 top: '10px',
                 right: '-20px',
-                width: '80px',
-                height: '80px',
+                width: '70px',
+                height: '70px',
                 background: 'linear-gradient(135deg, #fbbf24, #f59e0b)',
                 borderRadius: '50%',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                fontSize: '1.5rem',
+                fontSize: '1.2rem',
                 boxShadow: '0 8px 20px rgba(251, 191, 36, 0.4)',
                 animation: 'bounce 2s infinite',
-                border: '4px solid white'
+                border: '3px solid white'
               }}>
                 ⚡
               </div>
@@ -371,17 +371,17 @@ const Home = ({ setActiveSection }) => {
                 position: 'absolute',
                 bottom: '20px',
                 left: '-30px',
-                width: '70px',
-                height: '70px',
+                width: '60px',
+                height: '60px',
                 background: 'linear-gradient(135deg, #10b981, #059669)',
                 borderRadius: '50%',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                fontSize: '1.25rem',
+                fontSize: '1rem',
                 boxShadow: '0 8px 20px rgba(16, 185, 129, 0.4)',
                 animation: 'pulse 3s infinite',
-                border: '4px solid white'
+                border: '3px solid white'
               }}>
                 💻
               </div>
@@ -390,17 +390,17 @@ const Home = ({ setActiveSection }) => {
                 position: 'absolute',
                 top: '50%',
                 left: '-40px',
-                width: '60px',
-                height: '60px',
+                width: '50px',
+                height: '50px',
                 background: 'linear-gradient(135deg, #8b5cf6, #7c3aed)',
                 borderRadius: '50%',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                fontSize: '1rem',
+                fontSize: '0.9rem',
                 boxShadow: '0 8px 20px rgba(139, 92, 246, 0.4)',
                 animation: 'bounce 2.5s infinite',
-                border: '4px solid white'
+                border: '3px solid white'
               }}>
                 🚀
               </div>
