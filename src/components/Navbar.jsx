@@ -146,7 +146,8 @@ const Navbar = ({ activeSection, setActiveSection }) => {
     animation: isMenuOpen ? 'slideDown 0.4s cubic-bezier(0.4, 0, 0.2, 1)' : 'slideUp 0.3s ease-in',
     transformOrigin: 'top',
     maxHeight: '80vh',
-    overflowY: 'auto'
+    overflowY: 'auto',
+    zIndex: 1001
   };
 
   const mobileMenuItemStyle = (isActive) => ({
@@ -187,7 +188,7 @@ const Navbar = ({ activeSection, setActiveSection }) => {
           </div>
 
           {/* Desktop Navigation */}
-          <div className="desktop-nav" style={{ display: 'none' }}>
+          <div className="desktop-nav">
             <div style={desktopNavStyle}>
               {navItems.map((item) => (
                 <button
@@ -255,7 +256,7 @@ const Navbar = ({ activeSection, setActiveSection }) => {
           </div>
 
           {/* Mobile Controls */}
-          <div className="mobile-nav" style={{ display: 'flex', gap: '0.5rem' }}>
+          <div className="mobile-nav" style={{ gap: '0.5rem' }}>
             {/* Theme Toggle Button - Mobile */}
             <button
               onClick={toggleTheme}
@@ -284,7 +285,10 @@ const Navbar = ({ activeSection, setActiveSection }) => {
             
             {/* Menu Button */}
             <button
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              onClick={() => {
+                console.log('Menu button clicked, current state:', isMenuOpen);
+                setIsMenuOpen(!isMenuOpen);
+              }}
               style={{
                 ...mobileButtonStyle,
                 backgroundColor: currentColors.buttonBg,
@@ -322,6 +326,7 @@ const Navbar = ({ activeSection, setActiveSection }) => {
         </div>
 
         {/* Mobile Navigation */}
+        {console.log('Rendering mobile menu, isMenuOpen:', isMenuOpen)}
         {isMenuOpen && (
           <div className="mobile-menu" style={mobileMenuStyle}>
             {/* Mobile menu header */}
