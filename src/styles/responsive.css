@@ -759,4 +759,163 @@ obile Menu Specific Improvements */
     transform: scale(0.98) !important;
     opacity: 0.8 !important;
   }
+}/* Enh
+anced Floating Badges Animations */
+@keyframes floatBounce {
+  0%, 100% { 
+    transform: translateY(0px) rotate(0deg); 
+  }
+  25% { 
+    transform: translateY(-8px) rotate(2deg); 
+  }
+  50% { 
+    transform: translateY(-15px) rotate(0deg); 
+  }
+  75% { 
+    transform: translateY(-8px) rotate(-2deg); 
+  }
+}
+
+@keyframes floatPulse {
+  0%, 100% { 
+    transform: scale(1) translateY(0px); 
+    opacity: 1;
+  }
+  25% { 
+    transform: scale(1.05) translateY(-5px); 
+    opacity: 0.9;
+  }
+  50% { 
+    transform: scale(1.1) translateY(-10px); 
+    opacity: 0.8;
+  }
+  75% { 
+    transform: scale(1.05) translateY(-5px); 
+    opacity: 0.9;
+  }
+}
+
+@keyframes floatSway {
+  0%, 100% { 
+    transform: translateX(0px) translateY(0px) rotate(0deg); 
+  }
+  25% { 
+    transform: translateX(5px) translateY(-8px) rotate(3deg); 
+  }
+  50% { 
+    transform: translateX(0px) translateY(-15px) rotate(0deg); 
+  }
+  75% { 
+    transform: translateX(-5px) translateY(-8px) rotate(-3deg); 
+  }
+}
+
+@keyframes floatRotate {
+  0% { 
+    transform: rotate(0deg) translateY(0px); 
+  }
+  25% { 
+    transform: rotate(90deg) translateY(-5px); 
+  }
+  50% { 
+    transform: rotate(180deg) translateY(-10px); 
+  }
+  75% { 
+    transform: rotate(270deg) translateY(-5px); 
+  }
+  100% { 
+    transform: rotate(360deg) translateY(0px); 
+  }
+}
+
+@keyframes floatOrbit {
+  0% { 
+    transform: rotate(0deg) translateX(15px) rotate(0deg); 
+  }
+  25% { 
+    transform: rotate(90deg) translateX(15px) rotate(-90deg); 
+  }
+  50% { 
+    transform: rotate(180deg) translateX(15px) rotate(-180deg); 
+  }
+  75% { 
+    transform: rotate(270deg) translateX(15px) rotate(-270deg); 
+  }
+  100% { 
+    transform: rotate(360deg) translateX(15px) rotate(-360deg); 
+  }
+}
+
+/* Floating badges hover effects */
+.floating-badge {
+  position: relative;
+  overflow: visible;
+}
+
+.floating-badge::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  border-radius: 50%;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: -1;
+}
+
+.floating-badge:hover::before {
+  opacity: 1;
+}
+
+/* Responsive adjustments for floating badges */
+@media (max-width: 1024px) {
+  .skill-badge-4,
+  .skill-badge-5 {
+    display: none !important;
+  }
+  
+  .skill-badge-1 {
+    width: 60px !important;
+    height: 60px !important;
+    font-size: 1rem !important;
+  }
+  
+  .skill-badge-2 {
+    width: 55px !important;
+    height: 55px !important;
+    font-size: 0.95rem !important;
+  }
+  
+  .skill-badge-3 {
+    width: 50px !important;
+    height: 50px !important;
+    font-size: 0.9rem !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .floating-badge {
+    display: none !important;
+  }
+}
+
+/* Performance optimizations */
+.floating-badge {
+  will-change: transform;
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+  .floating-badge {
+    animation: none !important;
+  }
+  
+  .floating-badge:hover {
+    transform: none !important;
+  }
 }

@@ -340,7 +340,7 @@ const Home = ({ setActiveSection }) => {
                     }}
                     onError={(e) => {
                       // في حالة عدم وجود الصورة، استخدم صورة افتراضية
-                      e.target.src = 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=300&fit=crop&crop=face';
+                      
                     }}
                     loading="lazy"
                   />
@@ -348,29 +348,41 @@ const Home = ({ setActiveSection }) => {
               </div>
               
               {/* Floating skill badges */}
-              <div className="floating-badge" style={{
+              <div className="floating-badge skill-badge-1" style={{
                 position: 'absolute',
-                top: '10px',
-                right: '-20px',
-                width: '70px',
-                height: '70px',
+                top: '15px',
+                right: '-25px',
+                width: '65px',
+                height: '65px',
                 background: 'linear-gradient(135deg, #fbbf24, #f59e0b)',
                 borderRadius: '50%',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                fontSize: '1.2rem',
-                boxShadow: '0 8px 20px rgba(251, 191, 36, 0.4)',
-                animation: 'bounce 2s infinite',
-                border: '3px solid white'
+                fontSize: '1.1rem',
+                boxShadow: '0 10px 25px rgba(251, 191, 36, 0.4)',
+                animation: 'floatBounce 3s ease-in-out infinite',
+                border: '3px solid white',
+                cursor: 'pointer',
+                transition: 'all 0.3s ease',
+                zIndex: 10
+              }}
+              title="سرعة في التطوير"
+              onMouseEnter={(e) => {
+                e.target.style.transform = 'scale(1.1)';
+                e.target.style.boxShadow = '0 15px 35px rgba(251, 191, 36, 0.6)';
+              }}
+              onMouseLeave={(e) => {
+                e.target.style.transform = 'scale(1)';
+                e.target.style.boxShadow = '0 10px 25px rgba(251, 191, 36, 0.4)';
               }}>
                 ⚡
               </div>
               
-              <div className="floating-badge" style={{
+              <div className="floating-badge skill-badge-2" style={{
                 position: 'absolute',
-                bottom: '20px',
-                left: '-30px',
+                bottom: '25px',
+                left: '-25px',
                 width: '60px',
                 height: '60px',
                 background: 'linear-gradient(135deg, #10b981, #059669)',
@@ -378,31 +390,118 @@ const Home = ({ setActiveSection }) => {
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                fontSize: '0.9rem',
-                boxShadow: '0 8px 20px rgba(16, 185, 129, 0.4)',
-                animation: 'pulse 3s infinite',
-                border: '3px solid white'
+                fontSize: '1rem',
+                boxShadow: '0 10px 25px rgba(16, 185, 129, 0.4)',
+                animation: 'floatPulse 4s ease-in-out infinite',
+                border: '3px solid white',
+                cursor: 'pointer',
+                transition: 'all 0.3s ease',
+                zIndex: 10
+              }}
+              title="تطوير متقدم"
+              onMouseEnter={(e) => {
+                e.target.style.transform = 'scale(1.1)';
+                e.target.style.boxShadow = '0 15px 35px rgba(16, 185, 129, 0.6)';
+              }}
+              onMouseLeave={(e) => {
+                e.target.style.transform = 'scale(1)';
+                e.target.style.boxShadow = '0 10px 25px rgba(16, 185, 129, 0.4)';
               }}>
                 💻
               </div>
               
-              <div className="floating-badge" style={{
+              <div className="floating-badge skill-badge-3" style={{
                 position: 'absolute',
                 top: '50%',
-                left: '-40px',
-                width: '50px',
-                height: '50px',
+                left: '-35px',
+                width: '55px',
+                height: '55px',
                 background: 'linear-gradient(135deg, #8b5cf6, #7c3aed)',
                 borderRadius: '50%',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                fontSize: '0.9rem',
-                boxShadow: '0 8px 20px rgba(139, 92, 246, 0.4)',
-                animation: 'bounce 2.5s infinite',
-                border: '3px solid white'
+                fontSize: '0.95rem',
+                boxShadow: '0 10px 25px rgba(139, 92, 246, 0.4)',
+                animation: 'floatSway 5s ease-in-out infinite',
+                border: '3px solid white',
+                cursor: 'pointer',
+                transition: 'all 0.3s ease',
+                zIndex: 10
+              }}
+              title="ابتكار وإبداع"
+              onMouseEnter={(e) => {
+                e.target.style.transform = 'scale(1.1)';
+                e.target.style.boxShadow = '0 15px 35px rgba(139, 92, 246, 0.6)';
+              }}
+              onMouseLeave={(e) => {
+                e.target.style.transform = 'scale(1)';
+                e.target.style.boxShadow = '0 10px 25px rgba(139, 92, 246, 0.4)';
               }}>
                 🚀
+              </div>
+              
+              {/* Additional skill badges */}
+              <div className="floating-badge skill-badge-4" style={{
+                position: 'absolute',
+                top: '30%',
+                right: '-15px',
+                width: '45px',
+                height: '45px',
+                background: 'linear-gradient(135deg, #ef4444, #dc2626)',
+                borderRadius: '50%',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                fontSize: '0.8rem',
+                boxShadow: '0 8px 20px rgba(239, 68, 68, 0.4)',
+                animation: 'floatRotate 6s linear infinite',
+                border: '2px solid white',
+                cursor: 'pointer',
+                transition: 'all 0.3s ease',
+                zIndex: 10
+              }}
+              title="حلول مبتكرة"
+              onMouseEnter={(e) => {
+                e.target.style.transform = 'scale(1.15)';
+                e.target.style.boxShadow = '0 12px 30px rgba(239, 68, 68, 0.6)';
+              }}
+              onMouseLeave={(e) => {
+                e.target.style.transform = 'scale(1)';
+                e.target.style.boxShadow = '0 8px 20px rgba(239, 68, 68, 0.4)';
+              }}>
+                🎯
+              </div>
+              
+              <div className="floating-badge skill-badge-5" style={{
+                position: 'absolute',
+                bottom: '60%',
+                left: '-20px',
+                width: '40px',
+                height: '40px',
+                background: 'linear-gradient(135deg, #06b6d4, #0891b2)',
+                borderRadius: '50%',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                fontSize: '0.75rem',
+                boxShadow: '0 6px 15px rgba(6, 182, 212, 0.4)',
+                animation: 'floatOrbit 8s linear infinite',
+                border: '2px solid white',
+                cursor: 'pointer',
+                transition: 'all 0.3s ease',
+                zIndex: 10
+              }}
+              title="تقنيات حديثة"
+              onMouseEnter={(e) => {
+                e.target.style.transform = 'scale(1.2)';
+                e.target.style.boxShadow = '0 10px 25px rgba(6, 182, 212, 0.6)';
+              }}
+              onMouseLeave={(e) => {
+                e.target.style.transform = 'scale(1)';
+                e.target.style.boxShadow = '0 6px 15px rgba(6, 182, 212, 0.4)';
+              }}>
+                ⭐
               </div>
             </div>
           </div>
