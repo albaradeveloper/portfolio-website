@@ -765,14 +765,8 @@ anced Floating Badges Animations */
   0%, 100% { 
     transform: translateY(0px) rotate(0deg); 
   }
-  25% { 
-    transform: translateY(-8px) rotate(2deg); 
-  }
   50% { 
-    transform: translateY(-15px) rotate(0deg); 
-  }
-  75% { 
-    transform: translateY(-8px) rotate(-2deg); 
+    transform: translateY(-5px) rotate(1deg); 
   }
 }
 
@@ -781,17 +775,9 @@ anced Floating Badges Animations */
     transform: scale(1) translateY(0px); 
     opacity: 1;
   }
-  25% { 
-    transform: scale(1.05) translateY(-5px); 
-    opacity: 0.9;
-  }
   50% { 
-    transform: scale(1.1) translateY(-10px); 
-    opacity: 0.8;
-  }
-  75% { 
-    transform: scale(1.05) translateY(-5px); 
-    opacity: 0.9;
+    transform: scale(1.02) translateY(-3px); 
+    opacity: 0.95;
   }
 }
 
@@ -799,14 +785,8 @@ anced Floating Badges Animations */
   0%, 100% { 
     transform: translateX(0px) translateY(0px) rotate(0deg); 
   }
-  25% { 
-    transform: translateX(5px) translateY(-8px) rotate(3deg); 
-  }
   50% { 
-    transform: translateX(0px) translateY(-15px) rotate(0deg); 
-  }
-  75% { 
-    transform: translateX(-5px) translateY(-8px) rotate(-3deg); 
+    transform: translateX(3px) translateY(-4px) rotate(1deg); 
   }
 }
 
@@ -872,27 +852,14 @@ anced Floating Badges Animations */
 
 /* Responsive adjustments for floating badges */
 @media (max-width: 1024px) {
-  .skill-badge-4,
-  .skill-badge-5 {
-    display: none !important;
+  .floating-badge {
+    transform: scale(0.9) !important;
   }
-  
-  .skill-badge-1 {
-    width: 60px !important;
-    height: 60px !important;
-    font-size: 1rem !important;
-  }
-  
-  .skill-badge-2 {
-    width: 55px !important;
-    height: 55px !important;
-    font-size: 0.95rem !important;
-  }
-  
-  .skill-badge-3 {
-    width: 50px !important;
-    height: 50px !important;
-    font-size: 0.9rem !important;
+}
+
+@media (max-width: 900px) {
+  .floating-badge {
+    transform: scale(0.8) !important;
   }
 }
 
