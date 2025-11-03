@@ -305,7 +305,7 @@
   /* Navbar mobile adjustments */
   nav {
     width: 96% !important;
-    top: 0.5rem !important;
+    top: 1rem !important;
     border-radius: 1.25rem !important;
   }
   
@@ -699,41 +699,33 @@ oating badges specific styling */
 obile Menu Specific Improvements */
 @media (max-width: 768px) {
   .mobile-menu {
-    max-height: 70vh !important;
-    overflow-y: auto !important;
+    max-height: none !important;
+    overflow: visible !important;
+    height: auto !important;
   }
   
   .mobile-menu-item {
     touch-action: manipulation !important;
     -webkit-tap-highlight-color: transparent !important;
+    padding: 0.75rem 1rem !important;
+    font-size: 0.95rem !important;
+    margin-bottom: 0.25rem !important;
   }
   
-  /* Improve scrolling on mobile */
-  .mobile-menu::-webkit-scrollbar {
-    width: 4px;
-  }
-  
-  .mobile-menu::-webkit-scrollbar-track {
-    background: transparent;
-  }
-  
-  .mobile-menu::-webkit-scrollbar-thumb {
-    background: rgba(59, 130, 246, 0.3);
-    border-radius: 2px;
+  /* Mobile menu content */
+  .mobile-menu > div {
+    padding: 0.75rem !important;
   }
 }
 
 @media (max-width: 480px) {
-  .mobile-menu {
-    max-height: 60vh !important;
+  .mobile-menu-item {
+    padding: 0.625rem 0.875rem !important;
+    font-size: 0.9rem !important;
   }
   
-  .mobile-menu > div:first-child {
-    padding: 0.75rem 1rem 0.375rem !important;
-  }
-  
-  .mobile-menu > div:last-child {
-    padding: 0.375rem 0.75rem 1rem !important;
+  .mobile-menu > div {
+    padding: 0.625rem !important;
   }
 }
 
@@ -884,5 +876,29 @@ anced Floating Badges Animations */
   
   .floating-badge:hover {
     transform: none !important;
+  }
+}/* Fi
+x mobile menu height issues */
+@media (max-width: 768px) {
+  .mobile-menu {
+    min-height: auto !important;
+    height: auto !important;
+    max-height: none !important;
+  }
+  
+  .mobile-menu-item {
+    min-height: 44px !important;
+    height: auto !important;
+  }
+}
+
+/* Ensure proper mobile menu display */
+@media (max-width: 768px) {
+  nav .mobile-menu {
+    display: block !important;
+    position: absolute !important;
+    width: 100% !important;
+    left: 0 !important;
+    right: 0 !important;
   }
 }

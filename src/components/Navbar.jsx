@@ -154,34 +154,32 @@ const Navbar = ({ activeSection, setActiveSection }) => {
     border: `1px solid ${currentColors.border}`,
     boxShadow: `0 15px 35px ${currentColors.shadowHover}`,
     marginTop: '0.25rem',
-    overflow: 'hidden',
+    overflow: 'visible',
     animation: isMenuOpen ? 'slideDown 0.4s cubic-bezier(0.4, 0, 0.2, 1)' : 'slideUp 0.3s ease-in',
     transformOrigin: 'top',
-    maxHeight: '80vh',
-    overflowY: 'auto',
     zIndex: 1001
   };
 
   const mobileMenuItemStyle = (isActive) => ({
     display: 'flex',
     alignItems: 'center',
-    justifyContent: 'flex-end',
+    justifyContent: 'space-between',
     width: '100%',
-    padding: '0.875rem 1.25rem',
-    borderRadius: '0.75rem',
-    fontSize: '1rem',
-    fontWeight: '700',
+    padding: '0.75rem 1rem',
+    borderRadius: '0.5rem',
+    fontSize: '0.95rem',
+    fontWeight: '600',
     border: 'none',
     cursor: 'pointer',
-    marginBottom: '0.25rem',
+    marginBottom: '0.125rem',
     background: isActive 
       ? 'linear-gradient(135deg, #2563eb 0%, #7c3aed 100%)' 
       : 'transparent',
     color: isActive ? 'white' : currentColors.textSecondary,
-    transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
-    gap: '0.75rem',
-    boxShadow: isActive ? '0 4px 12px rgba(37, 99, 235, 0.3)' : 'none',
-    transform: isActive ? 'translateX(-4px)' : 'translateX(0)',
+    transition: 'all 0.3s ease',
+    gap: '0.5rem',
+    boxShadow: isActive ? '0 2px 8px rgba(37, 99, 235, 0.3)' : 'none',
+    transform: isActive ? 'translateX(-2px)' : 'translateX(0)',
     minHeight: '44px'
   });
 
@@ -345,23 +343,7 @@ const Navbar = ({ activeSection, setActiveSection }) => {
         {console.log('Rendering mobile menu, isMenuOpen:', isMenuOpen)}
         {isMenuOpen && (
           <div className="mobile-menu" style={mobileMenuStyle}>
-            {/* Mobile menu header */}
-            <div style={{
-              padding: '1rem 1.5rem 0.5rem',
-              borderBottom: `1px solid ${currentColors.border}`,
-              marginBottom: '0.5rem'
-            }}>
-              <p style={{
-                fontSize: '0.875rem',
-                color: currentColors.textMuted,
-                textAlign: 'center',
-                margin: 0
-              }}>
-                التنقل السريع
-              </p>
-            </div>
-            
-            <div style={{ padding: '0.5rem 1rem 1.5rem' }}>
+            <div style={{ padding: '0.75rem' }}>
               {navItems.map((item, index) => (
                 <button
                   key={item.id}
@@ -378,8 +360,8 @@ const Navbar = ({ activeSection, setActiveSection }) => {
                     if (activeSection !== item.id) {
                       e.target.style.backgroundColor = currentColors.buttonHover;
                       e.target.style.color = currentColors.accent;
-                      e.target.style.transform = 'translateX(-8px)';
-                      e.target.style.boxShadow = '0 4px 12px rgba(37, 99, 235, 0.2)';
+                      e.target.style.transform = 'translateX(-4px)';
+                      e.target.style.boxShadow = '0 2px 8px rgba(37, 99, 235, 0.2)';
                     }
                   }}
                   onMouseLeave={(e) => {
@@ -392,27 +374,9 @@ const Navbar = ({ activeSection, setActiveSection }) => {
                   }}
                 >
                   {item.label}
-                  <span style={{ fontSize: '1.25rem' }}>{item.icon}</span>
+                  <span style={{ fontSize: '1.1rem' }}>{item.icon}</span>
                 </button>
               ))}
-            </div>
-            
-            {/* Mobile menu footer */}
-            <div style={{
-              padding: '1rem 1.5rem',
-              borderTop: `1px solid ${currentColors.border}`,
-              background: isDarkMode 
-                ? 'linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(147, 51, 234, 0.1))'
-                : 'linear-gradient(135deg, rgba(59, 130, 246, 0.05), rgba(147, 51, 234, 0.05))',
-              textAlign: 'center'
-            }}>
-              <p style={{
-                fontSize: '0.75rem',
-                color: currentColors.textMuted,
-                margin: 0
-              }}>
-                AL-Bara © 2024
-              </p>
             </div>
           </div>
         )}
