@@ -319,9 +319,9 @@ const About = () => {
                 المهارات التقنية
               </span>
             </h3>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+            <div className="skills-container" style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
               {skills.map((skill, index) => (
-                <div key={index} style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+                <div key={index} className="skill-item" style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
                   <div style={{
                     display: 'flex',
                     justifyContent: 'space-between',
@@ -330,10 +330,10 @@ const About = () => {
                     <span style={{
                       fontWeight: '600',
                       color: currentColors.text,
-                      fontSize: '1.1rem'
+                      fontSize: 'clamp(1rem, 2.5vw, 1.1rem)'
                     }}>{skill.name}</span>
                     <span style={{
-                      fontSize: '0.9rem',
+                      fontSize: 'clamp(0.8rem, 2vw, 0.9rem)',
                       color: currentColors.textSecondary,
                       fontWeight: '600'
                     }}>{skill.level}%</span>
@@ -342,12 +342,12 @@ const About = () => {
                     width: '100%',
                     backgroundColor: isDarkMode ? '#334155' : '#e2e8f0',
                     borderRadius: '9999px',
-                    height: '12px',
+                    height: 'clamp(10px, 2vw, 12px)',
                     overflow: 'hidden'
                   }}>
                     <div
                       style={{
-                        height: '12px',
+                        height: '100%',
                         borderRadius: '9999px',
                         background: getSkillGradient(skill.name),
                         width: `${skill.level}%`,
@@ -366,7 +366,7 @@ const About = () => {
         <div style={{ marginTop: '5rem' }}>
           <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
             <h3 style={{
-              fontSize: '2.5rem',
+              fontSize: 'clamp(2rem, 5vw, 2.5rem)',
               fontWeight: '900',
               color: currentColors.text,
               marginBottom: '1rem'
@@ -381,57 +381,228 @@ const About = () => {
               </span>
             </h3>
             <p style={{
-              fontSize: '1.1rem',
+              fontSize: 'clamp(1rem, 2.5vw, 1.1rem)',
               color: currentColors.textSecondary,
-              maxWidth: '600px',
-              margin: '0 auto'
+              maxWidth: '90%',
+              margin: '0 auto',
+              padding: '0 1rem'
             }}>
               رحلتي المهنية في عالم تطوير الويب والتقنيات الحديثة
             </p>
           </div>
-          <div className="relative">
-            {/* Timeline line */}
-            <div className="absolute right-1/2 transform translate-x-1/2 w-1 h-full bg-gradient-to-b from-blue-500 to-purple-500 rounded-full"></div>
+          
+          <div className="experience-timeline" style={{ position: 'relative' }}>
+            {/* Timeline line - Desktop */}
+            <div className="timeline-line-desktop" style={{
+              position: 'absolute',
+              right: '50%',
+              transform: 'translateX(50%)',
+              width: '4px',
+              height: '100%',
+              background: 'linear-gradient(to bottom, #2563eb, #7c3aed, #9333ea)',
+              borderRadius: '2px',
+              zIndex: 1
+            }}></div>
             
-            <div className="space-y-12">
+            {/* Timeline line - Mobile */}
+            <div className="timeline-line-mobile" style={{
+              position: 'absolute',
+              right: '1.5rem',
+              width: '3px',
+              height: '100%',
+              background: 'linear-gradient(to bottom, #2563eb, #7c3aed, #9333ea)',
+              borderRadius: '2px',
+              zIndex: 1,
+              display: 'none'
+            }}></div>
+            
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '3rem' }}>
               {experiences.map((exp, index) => (
-                <div key={index} className={`flex items-center ${index % 2 === 0 ? 'flex-row-reverse' : ''}`}>
-                  <div className={`w-1/2 ${index % 2 === 0 ? 'pl-8' : 'pr-8'}`}>
+                <div key={index} className="experience-item" style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  position: 'relative'
+                }}>
+                  {/* Desktop Layout */}
+                  <div className="experience-desktop" style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    width: '100%',
+                    flexDirection: index % 2 === 0 ? 'row-reverse' : 'row'
+                  }}>
+                    <div style={{
+                      width: '45%',
+                      padding: index % 2 === 0 ? '0 0 0 2rem' : '0 2rem 0 0'
+                    }}>
+                      <div style={{
+                        background: currentColors.cardBg,
+                        backdropFilter: 'blur(20px)',
+                        WebkitBackdropFilter: 'blur(20px)',
+                        padding: '2rem',
+                        borderRadius: '1.5rem',
+                        border: `1px solid ${currentColors.cardBorder}`,
+                        boxShadow: `0 20px 40px ${currentColors.shadow}`,
+                        transition: 'all 0.3s ease',
+                        position: 'relative'
+                      }}
+                      onMouseEnter={(e) => {
+                        e.currentTarget.style.transform = 'translateY(-5px)';
+                        e.currentTarget.style.boxShadow = `0 25px 50px ${currentColors.shadowHover}`;
+                      }}
+                      onMouseLeave={(e) => {
+                        e.currentTarget.style.transform = 'translateY(0)';
+                        e.currentTarget.style.boxShadow = `0 20px 40px ${currentColors.shadow}`;
+                      }}
+                      >
+                        <div style={{
+                          display: 'flex',
+                          alignItems: 'center',
+                          marginBottom: '1rem',
+                          gap: '0.75rem'
+                        }}>
+                          <div style={{
+                            width: '12px',
+                            height: '12px',
+                            background: 'linear-gradient(135deg, #2563eb, #7c3aed)',
+                            borderRadius: '50%'
+                          }}></div>
+                          <span style={{
+                            fontSize: '0.875rem',
+                            color: currentColors.accent,
+                            fontWeight: '600',
+                            background: 'linear-gradient(135deg, rgba(37, 99, 235, 0.1), rgba(124, 58, 237, 0.1))',
+                            padding: '0.25rem 0.75rem',
+                            borderRadius: '1rem',
+                            border: '1px solid rgba(37, 99, 235, 0.2)'
+                          }}>{exp.period}</span>
+                        </div>
+                        <h4 style={{
+                          fontSize: '1.25rem',
+                          fontWeight: '800',
+                          color: currentColors.text,
+                          marginBottom: '0.5rem'
+                        }}>{exp.title}</h4>
+                        <p style={{
+                          color: currentColors.accent,
+                          fontWeight: '600',
+                          marginBottom: '0.75rem',
+                          fontSize: '1rem'
+                        }}>{exp.company}</p>
+                        <p style={{
+                          color: currentColors.textSecondary,
+                          lineHeight: '1.6',
+                          fontSize: '0.95rem'
+                        }}>{exp.description}</p>
+                      </div>
+                    </div>
+                    
+                    {/* Timeline dot - Desktop */}
+                    <div style={{
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      width: '3rem',
+                      height: '3rem',
+                      background: 'white',
+                      border: '4px solid #2563eb',
+                      borderRadius: '50%',
+                      zIndex: 10,
+                      position: 'relative',
+                      boxShadow: '0 4px 12px rgba(37, 99, 235, 0.3)'
+                    }}>
+                      <div style={{
+                        width: '0.75rem',
+                        height: '0.75rem',
+                        background: 'linear-gradient(135deg, #2563eb, #7c3aed)',
+                        borderRadius: '50%'
+                      }}></div>
+                    </div>
+                    
+                    <div style={{ width: '45%' }}></div>
+                  </div>
+                  
+                  {/* Mobile Layout */}
+                  <div className="experience-mobile" style={{
+                    display: 'none',
+                    width: '100%',
+                    paddingRight: '3rem',
+                    position: 'relative'
+                  }}>
                     <div style={{
                       background: currentColors.cardBg,
                       backdropFilter: 'blur(20px)',
                       WebkitBackdropFilter: 'blur(20px)',
-                      padding: '2rem',
-                      borderRadius: '1.5rem',
+                      padding: '1.5rem',
+                      borderRadius: '1rem',
                       border: `1px solid ${currentColors.cardBorder}`,
-                      boxShadow: `0 20px 40px ${currentColors.shadow}`,
+                      boxShadow: `0 15px 30px ${currentColors.shadow}`,
                       transition: 'all 0.3s ease'
-                    }}
-                    onMouseEnter={(e) => {
-                      e.currentTarget.style.transform = 'translateY(-5px)';
-                      e.currentTarget.style.boxShadow = `0 25px 50px ${currentColors.shadowHover}`;
-                    }}
-                    onMouseLeave={(e) => {
-                      e.currentTarget.style.transform = 'translateY(0)';
-                      e.currentTarget.style.boxShadow = `0 20px 40px ${currentColors.shadow}`;
-                    }}
-                    >
-                      <div className="flex items-center mb-3">
-                        <div className="w-3 h-3 bg-blue-500 rounded-full mr-3"></div>
-                        <span style={{ fontSize: '0.875rem', color: currentColors.accent, fontWeight: '600' }}>{exp.period}</span>
+                    }}>
+                      <div style={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        marginBottom: '1rem',
+                        gap: '0.5rem'
+                      }}>
+                        <div style={{
+                          width: '8px',
+                          height: '8px',
+                          background: 'linear-gradient(135deg, #2563eb, #7c3aed)',
+                          borderRadius: '50%'
+                        }}></div>
+                        <span style={{
+                          fontSize: '0.8rem',
+                          color: currentColors.accent,
+                          fontWeight: '600',
+                          background: 'linear-gradient(135deg, rgba(37, 99, 235, 0.1), rgba(124, 58, 237, 0.1))',
+                          padding: '0.2rem 0.6rem',
+                          borderRadius: '0.75rem',
+                          border: '1px solid rgba(37, 99, 235, 0.2)'
+                        }}>{exp.period}</span>
                       </div>
-                      <h4 style={{ fontSize: '1.25rem', fontWeight: '800', color: currentColors.text, marginBottom: '0.5rem' }}>{exp.title}</h4>
-                      <p style={{ color: currentColors.accent, fontWeight: '600', marginBottom: '0.75rem' }}>{exp.company}</p>
-                      <p style={{ color: currentColors.textSecondary }}>{exp.description}</p>
+                      <h4 style={{
+                        fontSize: '1.1rem',
+                        fontWeight: '800',
+                        color: currentColors.text,
+                        marginBottom: '0.5rem'
+                      }}>{exp.title}</h4>
+                      <p style={{
+                        color: currentColors.accent,
+                        fontWeight: '600',
+                        marginBottom: '0.75rem',
+                        fontSize: '0.9rem'
+                      }}>{exp.company}</p>
+                      <p style={{
+                        color: currentColors.textSecondary,
+                        lineHeight: '1.5',
+                        fontSize: '0.85rem'
+                      }}>{exp.description}</p>
+                    </div>
+                    
+                    {/* Timeline dot - Mobile */}
+                    <div style={{
+                      position: 'absolute',
+                      right: '0.75rem',
+                      top: '1.5rem',
+                      width: '1.5rem',
+                      height: '1.5rem',
+                      background: 'white',
+                      border: '3px solid #2563eb',
+                      borderRadius: '50%',
+                      zIndex: 10,
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      boxShadow: '0 2px 8px rgba(37, 99, 235, 0.3)'
+                    }}>
+                      <div style={{
+                        width: '0.375rem',
+                        height: '0.375rem',
+                        background: 'linear-gradient(135deg, #2563eb, #7c3aed)',
+                        borderRadius: '50%'
+                      }}></div>
                     </div>
                   </div>
-                  
-                  {/* Timeline dot */}
-                  <div className="relative flex items-center justify-center w-8 h-8 bg-white border-4 border-blue-500 rounded-full z-10">
-                    <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
-                  </div>
-                  
-                  <div className="w-1/2"></div>
                 </div>
               ))}
             </div>
@@ -465,10 +636,10 @@ const About = () => {
               الشهادات والإنجازات التي حققتها في مسيرتي المهنية
             </p>
           </div>
-          <div style={{
+          <div className="certificates-grid" style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
-            gap: '2rem'
+            gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+            gap: '1.5rem'
           }}>
             <div style={{
               background: currentColors.cardBg,

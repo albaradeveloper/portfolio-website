@@ -10,19 +10,80 @@ const Contact = () => {
     subject: '',
     message: ''
   });
+  
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [errors, setErrors] = useState({});
 
   const handleChange = (e) => {
+    const { name, value } = e.target;
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value
+      [name]: value
     });
+    
+    // Clear error when user starts typing
+    if (errors[name]) {
+      setErrors({
+        ...errors,
+        [name]: ''
+      });
+    }
+  };
+  
+  const validateForm = () => {
+    const newErrors = {};
+    
+    if (!formData.name.trim()) {
+      newErrors.name = 'الاسم مطلوب';
+    } else if (formData.name.trim().length < 2) {
+      newErrors.name = 'الاسم يجب أن يكون أكثر من حرفين';
+    }
+    
+    if (!formData.email.trim()) {
+      newErrors.email = 'البريد الإلكتروني مطلوب';
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+      newErrors.email = 'البريد الإلكتروني غير صحيح';
+    }
+    
+    if (!formData.subject.trim()) {
+      newErrors.subject = 'الموضوع مطلوب';
+    } else if (formData.subject.trim().length < 5) {
+      newErrors.subject = 'الموضوع يجب أن يكون أكثر من 5 أحرف';
+    }
+    
+    if (!formData.message.trim()) {
+      newErrors.message = 'الرسالة مطلوبة';
+    } else if (formData.message.trim().length < 10) {
+      newErrors.message = 'الرسالة يجب أن تكون أكثر من 10 أحرف';
+    }
+    
+    return newErrors;
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
-    alert('تم إرسال رسالتك بنجاح! سأتواصل معك قريباً.');
-    setFormData({ name: '', email: '', subject: '', message: '' });
+    
+    const formErrors = validateForm();
+    if (Object.keys(formErrors).length > 0) {
+      setErrors(formErrors);
+      return;
+    }
+    
+    setIsSubmitting(true);
+    setErrors({});
+    
+    try {
+      // Simulate API call
+      await new Promise(resolve => setTimeout(resolve, 2000));
+      
+      console.log('Form submitted:', formData);
+      alert('تم إرسال رسالتك بنجاح! سأتواصل معك قريباً.');
+      setFormData({ name: '', email: '', subject: '', message: '' });
+    } catch (error) {
+      alert('حدث خطأ أثناء إرسال الرسالة. يرجى المحاولة مرة أخرى.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const contactInfo = [
@@ -88,7 +149,7 @@ const Contact = () => {
         zIndex: 0
       }}></div>
       
-      <div style={{
+      <div className="contact-container" style={{
         maxWidth: '1200px',
         margin: '0 auto',
         padding: '0 1.5rem',
@@ -135,12 +196,13 @@ const Contact = () => {
           </h2>
           
           <p style={{
-            fontSize: '1.25rem',
+            fontSize: 'clamp(1rem, 2.5vw, 1.25rem)',
             color: currentColors.textSecondary,
-            maxWidth: '48rem',
+            maxWidth: '90%',
             margin: '0 auto',
             lineHeight: '1.6',
-            fontWeight: '500'
+            fontWeight: '500',
+            padding: '0 1rem'
           }}>
             أنا هنا لمساعدتك في تحقيق أهدافك الرقمية. تواصل معي وسأكون سعيداً للعمل معك
           </p>
@@ -152,7 +214,7 @@ const Contact = () => {
           gap: '3rem'
         }} className="contact-grid">
           {/* Contact Form */}
-          <div style={{
+          <div className="contact-form" style={{
             background: currentColors.cardBg,
             backdropFilter: 'blur(20px)',
             WebkitBackdropFilter: 'blur(20px)',
@@ -162,7 +224,7 @@ const Contact = () => {
             boxShadow: `0 25px 50px ${currentColors.shadow}`
           }}>
             <h3 style={{
-              fontSize: '2rem',
+              fontSize: 'clamp(1.5rem, 4vw, 2rem)',
               fontWeight: '800',
               color: currentColors.text,
               marginBottom: '2rem',
@@ -178,7 +240,7 @@ const Contact = () => {
               </span>
             </h3>
             
-            <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+            <form onSubmit={handleSubmit} className="contact-form-inner" style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }} className="form-grid">
                 <div>
                   <label style={{
@@ -195,16 +257,18 @@ const Contact = () => {
                     value={formData.name}
                     onChange={handleChange}
                     required
+                    className="form-input"
                     style={{
                       width: '100%',
-                      padding: '1rem',
+                      padding: 'clamp(0.75rem, 2vw, 1rem)',
                       borderRadius: '0.75rem',
                       border: `2px solid ${currentColors.border}`,
                       backgroundColor: currentColors.bgSecondary,
                       color: currentColors.text,
-                      fontSize: '1rem',
+                      fontSize: 'clamp(0.9rem, 2vw, 1rem)',
                       transition: 'all 0.3s ease',
-                      outline: 'none'
+                      outline: 'none',
+                      minHeight: '44px'
                     }}
                     onFocus={(e) => {
                       e.target.style.borderColor = currentColors.accent;
@@ -216,6 +280,16 @@ const Contact = () => {
                     }}
                     placeholder="اسمك الكامل"
                   />
+                  {errors.name && (
+                    <span style={{
+                      color: '#ef4444',
+                      fontSize: '0.875rem',
+                      marginTop: '0.25rem',
+                      display: 'block'
+                    }}>
+                      {errors.name}
+                    </span>
+                  )}
                 </div>
                 
                 <div>
@@ -233,16 +307,18 @@ const Contact = () => {
                     value={formData.email}
                     onChange={handleChange}
                     required
+                    className="form-input"
                     style={{
                       width: '100%',
-                      padding: '1rem',
+                      padding: 'clamp(0.75rem, 2vw, 1rem)',
                       borderRadius: '0.75rem',
                       border: `2px solid ${currentColors.border}`,
                       backgroundColor: currentColors.bgSecondary,
                       color: currentColors.text,
-                      fontSize: '1rem',
+                      fontSize: 'clamp(0.9rem, 2vw, 1rem)',
                       transition: 'all 0.3s ease',
-                      outline: 'none'
+                      outline: 'none',
+                      minHeight: '44px'
                     }}
                     onFocus={(e) => {
                       e.target.style.borderColor = currentColors.accent;
@@ -254,6 +330,16 @@ const Contact = () => {
                     }}
                     placeholder="your@email.com"
                   />
+                  {errors.email && (
+                    <span style={{
+                      color: '#ef4444',
+                      fontSize: '0.875rem',
+                      marginTop: '0.25rem',
+                      display: 'block'
+                    }}>
+                      {errors.email}
+                    </span>
+                  )}
                 </div>
               </div>
               
@@ -272,16 +358,18 @@ const Contact = () => {
                   value={formData.subject}
                   onChange={handleChange}
                   required
+                  className="form-input"
                   style={{
                     width: '100%',
-                    padding: '1rem',
+                    padding: 'clamp(0.75rem, 2vw, 1rem)',
                     borderRadius: '0.75rem',
                     border: `2px solid ${currentColors.border}`,
                     backgroundColor: currentColors.bgSecondary,
                     color: currentColors.text,
-                    fontSize: '1rem',
+                    fontSize: 'clamp(0.9rem, 2vw, 1rem)',
                     transition: 'all 0.3s ease',
-                    outline: 'none'
+                    outline: 'none',
+                    minHeight: '44px'
                   }}
                   onFocus={(e) => {
                     e.target.style.borderColor = currentColors.accent;
@@ -293,6 +381,16 @@ const Contact = () => {
                   }}
                   placeholder="موضوع الرسالة"
                 />
+                {errors.subject && (
+                  <span style={{
+                    color: '#ef4444',
+                    fontSize: '0.875rem',
+                    marginTop: '0.25rem',
+                    display: 'block'
+                  }}>
+                    {errors.subject}
+                  </span>
+                )}
               </div>
               
               <div>
@@ -310,18 +408,20 @@ const Contact = () => {
                   onChange={handleChange}
                   required
                   rows="6"
+                  className="form-textarea"
                   style={{
                     width: '100%',
-                    padding: '1rem',
+                    padding: 'clamp(0.75rem, 2vw, 1rem)',
                     borderRadius: '0.75rem',
                     border: `2px solid ${currentColors.border}`,
                     backgroundColor: currentColors.bgSecondary,
                     color: currentColors.text,
-                    fontSize: '1rem',
+                    fontSize: 'clamp(0.9rem, 2vw, 1rem)',
                     transition: 'all 0.3s ease',
                     outline: 'none',
                     resize: 'vertical',
-                    minHeight: '120px'
+                    minHeight: 'clamp(100px, 15vw, 120px)',
+                    fontFamily: 'inherit'
                   }}
                   onFocus={(e) => {
                     e.target.style.borderColor = currentColors.accent;
@@ -333,22 +433,43 @@ const Contact = () => {
                   }}
                   placeholder="اكتب رسالتك هنا..."
                 />
+                {errors.message && (
+                  <span style={{
+                    color: '#ef4444',
+                    fontSize: '0.875rem',
+                    marginTop: '0.25rem',
+                    display: 'block'
+                  }}>
+                    {errors.message}
+                  </span>
+                )}
               </div>
               
               <button
                 type="submit"
+                disabled={isSubmitting}
+                className="form-button"
                 style={{
-                  background: 'linear-gradient(135deg, #2563eb 0%, #7c3aed 50%, #9333ea 100%)',
+                  background: isSubmitting 
+                    ? 'linear-gradient(135deg, #94a3b8, #64748b)' 
+                    : 'linear-gradient(135deg, #2563eb 0%, #7c3aed 50%, #9333ea 100%)',
                   color: 'white',
-                  padding: '1.25rem 2.5rem',
+                  padding: 'clamp(1rem, 2.5vw, 1.25rem) clamp(1.5rem, 4vw, 2.5rem)',
                   borderRadius: '1rem',
                   fontWeight: '700',
                   border: 'none',
-                  cursor: 'pointer',
+                  cursor: isSubmitting ? 'not-allowed' : 'pointer',
                   transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
-                  fontSize: '1.1rem',
-                  boxShadow: '0 8px 25px rgba(37, 99, 235, 0.3)',
-                  width: '100%'
+                  fontSize: 'clamp(1rem, 2.5vw, 1.1rem)',
+                  boxShadow: isSubmitting 
+                    ? '0 4px 15px rgba(148, 163, 184, 0.3)' 
+                    : '0 8px 25px rgba(37, 99, 235, 0.3)',
+                  width: '100%',
+                  minHeight: '50px',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  gap: '0.5rem'
                 }}
                 onMouseEnter={(e) => {
                   e.target.style.transform = 'translateY(-3px) scale(1.02)';
@@ -359,13 +480,27 @@ const Contact = () => {
                   e.target.style.boxShadow = '0 8px 25px rgba(37, 99, 235, 0.3)';
                 }}
               >
-                إرسال الرسالة 📤
+                {isSubmitting ? (
+                  <>
+                    <div style={{
+                      width: '20px',
+                      height: '20px',
+                      border: '2px solid transparent',
+                      borderTop: '2px solid white',
+                      borderRadius: '50%',
+                      animation: 'spin 1s linear infinite'
+                    }}></div>
+                    جاري الإرسال...
+                  </>
+                ) : (
+                  'إرسال الرسالة 📤'
+                )}
               </button>
             </form>
           </div>
 
           {/* Contact Info */}
-          <div style={{
+          <div className="contact-info" style={{
             display: 'grid',
             gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
             gap: '1.5rem'

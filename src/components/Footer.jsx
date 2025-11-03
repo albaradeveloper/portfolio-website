@@ -45,7 +45,7 @@ const Footer = ({ activeSection, setActiveSection }) => {
     },
     { 
       name: 'GitHub', 
-      url: 'https://github.com/braaomer98',
+      url: 'https://github.com/albaradeveloper',
       bgColor: '#333333',
       icon: (
         <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
