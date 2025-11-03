@@ -274,6 +274,14 @@
   }
 }
 /* Navbar Responsive Styles */
+.desktop-nav {
+  display: block;
+}
+
+.mobile-nav {
+  display: none;
+}
+
 @media (min-width: 769px) {
   .desktop-nav {
     display: block !important;
@@ -291,6 +299,7 @@
   
   .mobile-nav {
     display: flex !important;
+    align-items: center !important;
   }
   
   /* Navbar mobile adjustments */

@@ -5,7 +5,10 @@ const Navbar = ({ activeSection, setActiveSection }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
   const { isDarkMode, toggleTheme, currentColors } = useTheme();
+  
+  console.log('Navbar render - isMobile:', isMobile, 'window.innerWidth:', window.innerWidth);
 
   const navItems = [
     { id: 'home', label: 'الرئيسية', icon: '🏠' },
@@ -28,8 +31,17 @@ const Navbar = ({ activeSection, setActiveSection }) => {
       setLastScrollY(currentScrollY);
     };
 
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+
     window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener('resize', handleResize);
+    
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', handleResize);
+    };
   }, [lastScrollY]);
   
   const navbarStyle = {
@@ -188,7 +200,7 @@ const Navbar = ({ activeSection, setActiveSection }) => {
           </div>
 
           {/* Desktop Navigation */}
-          <div className="desktop-nav">
+          <div className="desktop-nav" style={{ display: isMobile ? 'none' : 'block' }}>
             <div style={desktopNavStyle}>
               {navItems.map((item) => (
                 <button
@@ -256,7 +268,11 @@ const Navbar = ({ activeSection, setActiveSection }) => {
           </div>
 
           {/* Mobile Controls */}
-          <div className="mobile-nav" style={{ gap: '0.5rem' }}>
+          <div className="mobile-nav" style={{ 
+            gap: '0.5rem',
+            display: isMobile ? 'flex' : 'none',
+            alignItems: 'center'
+          }}>
             {/* Theme Toggle Button - Mobile */}
             <button
               onClick={toggleTheme}
