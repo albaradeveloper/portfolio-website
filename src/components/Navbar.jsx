@@ -5,10 +5,8 @@ const Navbar = ({ activeSection, setActiveSection }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
-  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
-  const { isDarkMode, toggleTheme, currentColors } = useTheme();
-  
-  console.log('Navbar render - isMobile:', isMobile, 'window.innerWidth:', window.innerWidth);
+  const [isMobile, setIsMobile] = useState(false);
+  const { isDarkMode, toggleTheme } = useTheme();
 
   const navItems = [
     { id: 'home', label: 'الرئيسية', icon: '🏠' },
@@ -21,7 +19,6 @@ const Navbar = ({ activeSection, setActiveSection }) => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
       
-      // Hide/show navbar based on scroll direction
       if (currentScrollY > lastScrollY && currentScrollY > 100) {
         setIsVisible(false);
       } else {
@@ -32,9 +29,11 @@ const Navbar = ({ activeSection, setActiveSection }) => {
     };
 
     const handleResize = () => {
-      setIsMobile(window.innerWidth <= 768);
+      const newIsMobile = window.innerWidth <= 768;
+      setIsMobile(newIsMobile);
     };
 
+    handleResize();
     window.addEventListener('scroll', handleScroll, { passive: true });
     window.addEventListener('resize', handleResize);
     
@@ -43,186 +42,87 @@ const Navbar = ({ activeSection, setActiveSection }) => {
       window.removeEventListener('resize', handleResize);
     };
   }, [lastScrollY]);
-  
-  const navbarStyle = {
-    position: 'fixed',
-    top: isVisible ? '1rem' : '-100px',
-    left: '50%',
-    transform: 'translateX(-50%)',
-    width: '95%',
-    maxWidth: '1200px',
-    backgroundColor: currentColors.navbarBg,
-    backdropFilter: 'blur(25px)',
-    WebkitBackdropFilter: 'blur(25px)',
-    boxShadow: `0 20px 40px ${currentColors.shadow}, 0 0 0 1px ${currentColors.border}`,
-    zIndex: 1000,
-    borderRadius: '1.5rem',
-    border: `1px solid ${currentColors.border}`,
-    transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)'
-  };
 
-  const containerStyle = {
-    width: '100%',
-    margin: '0 auto',
-    padding: '0 2rem',
-    display: 'flex',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    height: '4.5rem',
-    transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)'
-  };
+  useEffect(() => {
+    const checkMobile = () => {
+      const newIsMobile = window.innerWidth <= 768;
+      if (newIsMobile !== isMobile) {
+        setIsMobile(newIsMobile);
+      }
+    };
 
-  const logoStyle = {
-    fontSize: '1.75rem',
-    fontWeight: '900',
-    background: 'linear-gradient(135deg, #2563eb 0%, #7c3aed 50%, #9333ea 100%)',
-    WebkitBackgroundClip: 'text',
-    WebkitTextFillColor: 'transparent',
-    backgroundClip: 'text',
-    margin: 0,
-    cursor: 'pointer',
-    transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
-    letterSpacing: '-0.025em',
-    position: 'relative',
-    display: 'flex',
-    alignItems: 'center',
-    gap: '0.5rem'
-  };
+    checkMobile();
+    const interval = setInterval(checkMobile, 500);
+    return () => clearInterval(interval);
+  }, [isMobile]);
 
-  const desktopNavStyle = {
-    display: 'flex',
-    gap: '0.25rem',
-    backgroundColor: currentColors.buttonBg,
-    padding: '0.5rem',
-    borderRadius: '1.25rem',
-    border: `1px solid ${currentColors.border}`,
-    boxShadow: `0 4px 12px ${currentColors.shadow}`,
-    transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)'
-  };
-
-  const getButtonStyle = (isActive) => ({
-    padding: '0.7rem 1.4rem',
-    borderRadius: '1rem',
-    fontSize: '0.95rem',
-    fontWeight: '700',
-    border: 'none',
-    cursor: 'pointer',
-    transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
-    position: 'relative',
-    backgroundColor: isActive 
-      ? 'linear-gradient(135deg, #2563eb 0%, #7c3aed 100%)' 
-      : 'transparent',
-    background: isActive 
-      ? 'linear-gradient(135deg, #2563eb 0%, #7c3aed 100%)' 
-      : 'transparent',
-    color: isActive ? 'white' : currentColors.textSecondary,
-    boxShadow: isActive 
-      ? '0 8px 20px rgba(37, 99, 235, 0.3), 0 0 0 1px rgba(255, 255, 255, 0.2)' 
-      : 'none',
-    transform: isActive ? 'translateY(-2px) scale(1.02)' : 'translateY(0) scale(1)',
-    display: 'flex',
-    alignItems: 'center',
-    gap: '0.5rem',
-    whiteSpace: 'nowrap'
-  });
-
-  const mobileButtonStyle = {
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    padding: '0.7rem',
-    borderRadius: '1rem',
-    color: currentColors.textSecondary,
-    border: 'none',
-    backgroundColor: currentColors.buttonBg,
-    cursor: 'pointer',
-    transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
-    boxShadow: `0 4px 12px ${currentColors.shadow}`,
-    position: 'relative',
-    overflow: 'hidden'
-  };
-
-  const mobileMenuStyle = {
-    position: 'absolute',
-    top: '100%',
-    left: '0',
-    right: '0',
-    backgroundColor: currentColors.navbarBg,
-    backdropFilter: 'blur(25px)',
-    WebkitBackdropFilter: 'blur(25px)',
-    borderRadius: '0 0 1.25rem 1.25rem',
-    border: `1px solid ${currentColors.border}`,
-    boxShadow: `0 15px 35px ${currentColors.shadowHover}`,
-    marginTop: '0.25rem',
-    overflow: 'visible',
-    animation: isMenuOpen ? 'slideDown 0.4s cubic-bezier(0.4, 0, 0.2, 1)' : 'slideUp 0.3s ease-in',
-    transformOrigin: 'top',
-    zIndex: 1001
-  };
-
-  const mobileMenuItemStyle = (isActive) => ({
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    width: '100%',
-    padding: '0.75rem 1rem',
-    borderRadius: '0.5rem',
-    fontSize: '0.95rem',
-    fontWeight: '600',
-    border: 'none',
-    cursor: 'pointer',
-    marginBottom: '0.125rem',
-    background: isActive 
-      ? 'linear-gradient(135deg, #2563eb 0%, #7c3aed 100%)' 
-      : 'transparent',
-    color: isActive ? 'white' : currentColors.textSecondary,
-    transition: 'all 0.3s ease',
-    gap: '0.5rem',
-    boxShadow: isActive ? '0 2px 8px rgba(37, 99, 235, 0.3)' : 'none',
-    transform: isActive ? 'translateX(-2px)' : 'translateX(0)',
-    minHeight: '44px'
-  });
+  useEffect(() => {
+    const initialCheck = () => {
+      const isMobileDevice = window.innerWidth <= 768;
+      setIsMobile(isMobileDevice);
+    };
+    
+    initialCheck();
+    setTimeout(initialCheck, 100);
+  }, []);
 
   return (
     <>
-      <nav style={navbarStyle}>
-        <div style={containerStyle}>
+      <nav 
+        className={`
+          fixed left-1/2 -translate-x-1/2 z-[1000]
+          transition-all duration-400 ease-in-out
+          ${isVisible || isMobile ? (isMobile ? 'top-2' : 'top-4') : '-top-24'}
+          ${isMobile ? 'w-[96%] max-w-[600px]' : 'w-[95%] max-w-[1200px]'}
+          ${isMobile ? 'rounded-[1.25rem]' : 'rounded-[1.5rem]'}
+          ${isDarkMode 
+            ? 'bg-gray-900/90 border-white/10' 
+            : 'bg-white/90 border-black/10'
+          }
+          backdrop-blur-[25px] border
+          shadow-[0_20px_40px_rgba(0,0,0,0.1)]
+        `}
+      >
+        <div className="w-full mx-auto px-8 flex justify-between items-center h-[4.5rem] transition-all duration-400">
           {/* Logo */}
-          <div onClick={() => setActiveSection('home')} style={{ cursor: 'pointer' }}>
-            <h1 style={logoStyle}>
-              <span style={{ fontSize: '1.4rem', transition: 'font-size 0.4s ease' }}>
-                🚀
-              </span>
+          <div 
+            onClick={() => setActiveSection('home')} 
+            className="cursor-pointer"
+          >
+            <h1 className="text-[1.75rem] font-black bg-gradient-to-r from-blue-600 via-purple-600 to-purple-700 bg-clip-text text-transparent m-0 flex items-center gap-2 tracking-tight">
+              <span className="text-[1.4rem] transition-all duration-400">🚀</span>
               AL-Bara
             </h1>
           </div>
 
           {/* Desktop Navigation */}
-          <div className="desktop-nav" style={{ display: isMobile ? 'none' : 'block' }}>
-            <div style={desktopNavStyle}>
+          <div className={`${isMobile ? 'hidden' : 'block'}`}>
+            <div className={`
+              flex gap-1 p-2 rounded-[1.25rem] border
+              ${isDarkMode 
+                ? 'bg-gray-800/50 border-white/10' 
+                : 'bg-gray-100/50 border-black/10'
+              }
+              shadow-lg transition-all duration-400
+            `}>
               {navItems.map((item) => (
                 <button
                   key={item.id}
                   onClick={() => setActiveSection(item.id)}
-                  style={getButtonStyle(activeSection === item.id)}
-                  onMouseEnter={(e) => {
-                    if (activeSection !== item.id) {
-                      e.target.style.backgroundColor = currentColors.buttonHover;
-                      e.target.style.color = currentColors.accent;
-                      e.target.style.transform = 'translateY(-2px) scale(1.02)';
-                      e.target.style.boxShadow = '0 4px 12px rgba(37, 99, 235, 0.2)';
+                  className={`
+                    px-5 py-3 rounded-[1rem] text-[0.95rem] font-bold
+                    border-none cursor-pointer transition-all duration-400
+                    flex items-center gap-2 whitespace-nowrap
+                    ${activeSection === item.id
+                      ? 'bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-[0_8px_20px_rgba(37,99,235,0.3)]'
+                      : isDarkMode
+                        ? 'bg-transparent text-gray-400 hover:bg-gray-700/50 hover:text-blue-400'
+                        : 'bg-transparent text-gray-600 hover:bg-gray-200/50 hover:text-blue-600'
                     }
-                  }}
-                  onMouseLeave={(e) => {
-                    if (activeSection !== item.id) {
-                      e.target.style.backgroundColor = 'transparent';
-                      e.target.style.color = currentColors.textSecondary;
-                      e.target.style.transform = 'translateY(0) scale(1)';
-                      e.target.style.boxShadow = 'none';
-                    }
-                  }}
+                    ${activeSection === item.id ? 'translate-y-[-2px] scale-[1.02]' : 'translate-y-0 scale-100'}
+                  `}
                 >
-                  <span style={{ fontSize: '1rem' }}>{item.icon}</span>
+                  <span className="text-[1rem]">{item.icon}</span>
                   {item.label}
                 </button>
               ))}
@@ -230,34 +130,17 @@ const Navbar = ({ activeSection, setActiveSection }) => {
               {/* Theme Toggle Button */}
               <button
                 onClick={toggleTheme}
-                className="theme-toggle"
-                style={{
-                  padding: '0.7rem',
-                  borderRadius: '1rem',
-                  fontSize: '1.1rem',
-                  border: 'none',
-                  cursor: 'pointer',
-                  transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
-                  backgroundColor: currentColors.buttonBg,
-                  color: currentColors.textSecondary,
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  minWidth: '2.8rem',
-                  boxShadow: `0 2px 8px ${currentColors.shadow}`
-                }}
-                onMouseEnter={(e) => {
-                  e.target.style.backgroundColor = currentColors.buttonHover;
-                  e.target.style.color = currentColors.accent;
-                  e.target.style.transform = 'translateY(-2px) scale(1.05)';
-                  e.target.style.boxShadow = `0 4px 12px ${currentColors.shadowHover}`;
-                }}
-                onMouseLeave={(e) => {
-                  e.target.style.backgroundColor = currentColors.buttonBg;
-                  e.target.style.color = currentColors.textSecondary;
-                  e.target.style.transform = 'translateY(0) scale(1)';
-                  e.target.style.boxShadow = `0 2px 8px ${currentColors.shadow}`;
-                }}
+                className={`
+                  p-3 rounded-[1rem] text-[1.1rem] border-none cursor-pointer
+                  transition-all duration-400 flex items-center justify-center
+                  min-w-[2.8rem]
+                  ${isDarkMode
+                    ? 'bg-gray-800/50 text-gray-400 hover:bg-gray-700/50 hover:text-yellow-400'
+                    : 'bg-gray-100/50 text-gray-600 hover:bg-gray-200/50 hover:text-blue-600'
+                  }
+                  hover:translate-y-[-2px] hover:scale-105
+                  shadow-md
+                `}
                 title={isDarkMode ? 'التبديل إلى الوضع الفاتح' : 'التبديل إلى الوضع الداكن'}
               >
                 {isDarkMode ? '☀️' : '🌙'}
@@ -266,65 +149,41 @@ const Navbar = ({ activeSection, setActiveSection }) => {
           </div>
 
           {/* Mobile Controls */}
-          <div className="mobile-nav" style={{ 
-            gap: '0.5rem',
-            display: isMobile ? 'flex' : 'none',
-            alignItems: 'center'
-          }}>
+          <div className={`${isMobile ? 'flex' : 'hidden'} gap-2 items-center`}>
             {/* Theme Toggle Button - Mobile */}
             <button
               onClick={toggleTheme}
-              className="theme-toggle"
-              style={{
-                ...mobileButtonStyle,
-                backgroundColor: currentColors.buttonBg,
-                color: currentColors.textSecondary
-              }}
-              onMouseEnter={(e) => {
-                e.target.style.backgroundColor = currentColors.buttonHover;
-                e.target.style.color = currentColors.accent;
-                e.target.style.transform = 'scale(1.05)';
-              }}
-              onMouseLeave={(e) => {
-                e.target.style.backgroundColor = currentColors.buttonBg;
-                e.target.style.color = currentColors.textSecondary;
-                e.target.style.transform = 'scale(1)';
-              }}
+              className={`
+                flex items-center justify-center p-3 rounded-[1rem]
+                border-none cursor-pointer transition-all duration-400
+                ${isDarkMode
+                  ? 'bg-gray-800/50 text-gray-400 hover:bg-gray-700/50 hover:text-yellow-400'
+                  : 'bg-gray-100/50 text-gray-600 hover:bg-gray-200/50 hover:text-blue-600'
+                }
+                hover:scale-105 shadow-md
+              `}
               title={isDarkMode ? 'التبديل إلى الوضع الفاتح' : 'التبديل إلى الوضع الداكن'}
             >
-              <span style={{ fontSize: '1.2rem' }}>
+              <span className="text-[1.2rem]">
                 {isDarkMode ? '☀️' : '🌙'}
               </span>
             </button>
             
             {/* Menu Button */}
             <button
-              onClick={() => {
-                console.log('Menu button clicked, current state:', isMenuOpen);
-                setIsMenuOpen(!isMenuOpen);
-              }}
-              style={{
-                ...mobileButtonStyle,
-                backgroundColor: currentColors.buttonBg,
-                color: currentColors.textSecondary
-              }}
-              onMouseEnter={(e) => {
-                e.target.style.backgroundColor = currentColors.buttonHover;
-                e.target.style.color = currentColors.accent;
-                e.target.style.transform = 'scale(1.05)';
-              }}
-              onMouseLeave={(e) => {
-                e.target.style.backgroundColor = currentColors.buttonBg;
-                e.target.style.color = currentColors.textSecondary;
-                e.target.style.transform = 'scale(1)';
-              }}
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              className={`
+                flex items-center justify-center p-3 rounded-[1rem]
+                border-none cursor-pointer transition-all duration-400
+                ${isDarkMode
+                  ? 'bg-gray-800/50 text-gray-400 hover:bg-gray-700/50 hover:text-blue-400'
+                  : 'bg-gray-100/50 text-gray-600 hover:bg-gray-200/50 hover:text-blue-600'
+                }
+                hover:scale-105 shadow-md
+              `}
             >
               <svg 
-                style={{ 
-                  width: '1.4rem', 
-                  height: '1.4rem',
-                  transition: 'all 0.4s ease'
-                }} 
+                className="w-[1.4rem] h-[1.4rem] transition-all duration-400"
                 stroke="currentColor" 
                 fill="none" 
                 viewBox="0 0 24 24"
@@ -339,11 +198,22 @@ const Navbar = ({ activeSection, setActiveSection }) => {
           </div>
         </div>
 
-        {/* Mobile Navigation */}
-        {console.log('Rendering mobile menu, isMenuOpen:', isMenuOpen)}
-        {isMenuOpen && (
-          <div className="mobile-menu" style={mobileMenuStyle}>
-            <div style={{ padding: '0.75rem' }}>
+        {/* Mobile Navigation Menu */}
+        {isMenuOpen && isMobile && (
+          <div 
+            className={`
+              absolute top-full left-0 right-0 mt-1 z-[1001]
+              rounded-b-[1.25rem] border overflow-visible
+              ${isDarkMode
+                ? 'bg-gray-900/95 border-white/10'
+                : 'bg-white/95 border-black/10'
+              }
+              backdrop-blur-[25px]
+              shadow-[0_15px_35px_rgba(0,0,0,0.15)]
+              animate-slideDown
+            `}
+          >
+            <div className="p-3">
               {navItems.map((item, index) => (
                 <button
                   key={item.id}
@@ -351,98 +221,29 @@ const Navbar = ({ activeSection, setActiveSection }) => {
                     setActiveSection(item.id);
                     setIsMenuOpen(false);
                   }}
-                  className="mobile-menu-item"
-                  style={{
-                    ...mobileMenuItemStyle(activeSection === item.id),
-                    animationDelay: `${index * 0.1}s`
-                  }}
-                  onMouseEnter={(e) => {
-                    if (activeSection !== item.id) {
-                      e.target.style.backgroundColor = currentColors.buttonHover;
-                      e.target.style.color = currentColors.accent;
-                      e.target.style.transform = 'translateX(-4px)';
-                      e.target.style.boxShadow = '0 2px 8px rgba(37, 99, 235, 0.2)';
+                  className={`
+                    flex items-center justify-between w-full
+                    px-4 py-3 rounded-lg text-[0.95rem] font-semibold
+                    border-none cursor-pointer mb-1 last:mb-0
+                    transition-all duration-300 min-h-[44px]
+                    ${activeSection === item.id
+                      ? 'bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-[0_2px_8px_rgba(37,99,235,0.3)]'
+                      : isDarkMode
+                        ? 'bg-transparent text-gray-400 hover:bg-gray-800/50 hover:text-blue-400'
+                        : 'bg-transparent text-gray-600 hover:bg-gray-100/50 hover:text-blue-600'
                     }
-                  }}
-                  onMouseLeave={(e) => {
-                    if (activeSection !== item.id) {
-                      e.target.style.backgroundColor = 'transparent';
-                      e.target.style.color = currentColors.textSecondary;
-                      e.target.style.transform = 'translateX(0)';
-                      e.target.style.boxShadow = 'none';
-                    }
-                  }}
+                    ${activeSection === item.id ? '-translate-x-1' : 'translate-x-0'}
+                  `}
+                  style={{ animationDelay: `${index * 0.1}s` }}
                 >
                   {item.label}
-                  <span style={{ fontSize: '1.1rem' }}>{item.icon}</span>
+                  <span className="text-[1.1rem]">{item.icon}</span>
                 </button>
               ))}
             </div>
           </div>
         )}
       </nav>
-
-      {/* Enhanced animations */}
-      <style jsx>{`
-        @keyframes slideDown {
-          from {
-            opacity: 0;
-            transform: translateY(-20px) scale(0.95);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0) scale(1);
-          }
-        }
-        
-        @keyframes slideUp {
-          from {
-            opacity: 1;
-            transform: translateY(0) scale(1);
-          }
-          to {
-            opacity: 0;
-            transform: translateY(-20px) scale(0.95);
-          }
-        }
-
-        @keyframes fadeInStagger {
-          from {
-            opacity: 0;
-            transform: translateX(20px);
-          }
-          to {
-            opacity: 1;
-            transform: translateX(0);
-          }
-        }
-
-        .mobile-menu-item {
-          animation: fadeInStagger 0.3s ease-out forwards;
-        }
-
-        .navbar-glow {
-          position: relative;
-        }
-
-        .navbar-glow::before {
-          content: '';
-          position: absolute;
-          top: 0;
-          left: 0;
-          right: 0;
-          bottom: 0;
-          background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(147, 51, 234, 0.1));
-          border-radius: inherit;
-          opacity: 0;
-          transition: opacity 0.3s ease;
-          pointer-events: none;
-        }
-
-        .navbar-glow:hover::before {
-          opacity: 1;
-        }
-      `}</style>
     </>
   );
 };

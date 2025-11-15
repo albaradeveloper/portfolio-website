@@ -1,16 +1,141 @@
-# React + Vite
+# 🚀 AL-Bara Dev Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+موقع شخصي احترافي مبني باستخدام React و Tailwind CSS
 
-Currently, two official plugins are available:
+## ✨ المميزات
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- 🎨 **تصميم عصري**: واجهة مستخدم جذابة مع gradients وanimations
+- 🌓 **Dark Mode**: دعم كامل للوضع الداكن والفاتح
+- 📱 **Responsive**: متجاوب بالكامل على جميع الأجهزة
+- ⚡ **أداء عالي**: مبني باستخدام Vite و Tailwind CSS
+- 🎯 **SEO Friendly**: محسن لمحركات البحث
+- ♿ **Accessible**: يتبع معايير الوصول
 
-## React Compiler
+## 🛠️ التقنيات المستخدمة
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **React 18** - مكتبة JavaScript للواجهات
+- **Tailwind CSS** - إطار عمل CSS utility-first
+- **Vite** - أداة بناء سريعة
+- **React Context API** - لإدارة الحالة (Dark Mode)
 
-## Expanding the ESLint configuration
+## 📦 الأقسام
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+1. **الرئيسية (Home)** - صفحة الهبوط مع معلومات أساسية
+2. **معلوماتي (About)** - نبذة شخصية، مهارات، خبرات، شهادات
+3. **الخدمات (Services)** - الخدمات المقدمة مع التفاصيل
+4. **التواصل (Contact)** - نموذج تواصل ومعلومات الاتصال
+
+## 🚀 التثبيت والتشغيل
+
+### المتطلبات
+- Node.js (v16 أو أحدث)
+- npm أو yarn
+
+### خطوات التثبيت
+
+1. **استنساخ المشروع**
+```bash
+git clone <repository-url>
+cd portfolio
+```
+
+2. **تثبيت الحزم**
+```bash
+npm install
+# أو
+yarn install
+```
+
+3. **تشغيل المشروع**
+```bash
+npm run dev
+# أو
+yarn dev
+```
+
+4. **فتح المتصفح**
+```
+http://localhost:5173
+```
+
+## 📁 هيكل المشروع
+
+```
+src/
+├── components/          # مكونات React
+│   ├── Navbar.jsx      # شريط التنقل
+│   ├── Home.jsx        # الصفحة الرئيسية
+│   ├── About.jsx       # صفحة معلوماتي
+│   ├── Services.jsx    # صفحة الخدمات
+│   ├── Contact.jsx     # صفحة التواصل
+│   └── Footer.jsx      # التذييل
+├── contexts/           # React Contexts
+│   └── ThemeContext.jsx # إدارة الثيم
+├── styles/             # ملفات CSS
+│   ├── App.css         # أنماط عامة
+│   └── theme.css       # أنماط الثيم
+├── App.jsx             # المكون الرئيسي
+└── main.jsx            # نقطة الدخول
+
+```
+
+## 🎨 التخصيص
+
+### الألوان
+يمكنك تخصيص الألوان في `tailwind.config.js`:
+
+```javascript
+theme: {
+  extend: {
+    colors: {
+      primary: {
+        500: '#3b82f6',
+        600: '#2563eb',
+        700: '#1d4ed8',
+      }
+    }
+  }
+}
+```
+
+### الخطوط
+الخط الافتراضي هو Inter. يمكنك تغييره في `tailwind.config.js`:
+
+```javascript
+fontFamily: {
+  'inter': ['Inter', 'sans-serif'],
+}
+```
+
+## 📱 معلومات التواصل
+
+- 📧 **Email**: braaomer98@gmail.com
+- 📱 **WhatsApp**: +249926699368
+- 𝕏 **X (Twitter)**: [@braaomer98](https://x.com/braaomer98)
+- 📍 **Location**: الخرطوم، السودان
+
+## 🔧 البناء للإنتاج
+
+```bash
+npm run build
+# أو
+yarn build
+```
+
+سيتم إنشاء مجلد `dist` يحتوي على الملفات الجاهزة للنشر.
+
+## 📄 الترخيص
+
+هذا المشروع مفتوح المصدر ومتاح للاستخدام الشخصي.
+
+## 🙏 شكر وتقدير
+
+- [React](https://reactjs.org/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [Vite](https://vitejs.dev/)
+
+---
+
+**صُنع بـ ❤️ بواسطة AL-Bara**
+
+© 2024 AL-Bara Dev. جميع الحقوق محفوظة.

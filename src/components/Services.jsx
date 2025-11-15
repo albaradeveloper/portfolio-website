@@ -1,8 +1,10 @@
-import React from 'react';
+import { useState } from 'react';
 import { useTheme } from '../contexts/ThemeContext';
+import ProjectDialog from './ProjectDialog';
 
 const Services = () => {
-  const { isDarkMode, currentColors } = useTheme();
+  const { isDarkMode } = useTheme();
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
 
   const services = [
     {
@@ -10,338 +12,180 @@ const Services = () => {
       title: 'تطوير مواقع الويب',
       description: 'تصميم وتطوير مواقع ويب حديثة ومتجاوبة باستخدام أحدث التقنيات',
       features: ['تصميم متجاوب', 'سرعة عالية', 'SEO محسن', 'أمان متقدم'],
-      price: 'يبدأ من 1,000,000 جنيه سوداني'
+      price: 'يبدأ من 1,000,000 جنيه سوداني',
+      gradient: 'from-blue-500 to-cyan-500'
     },
     {
       icon: '📱',
       title: 'تطبيقات الموبايل',
       description: 'تطوير تطبيقات موبايل متقدمة لنظامي iOS و Android',
       features: ['تصميم أصلي', 'أداء عالي', 'تجربة مستخدم ممتازة', 'دعم متعدد المنصات'],
-      price: 'يبدأ من 2,000,000 جنيه سوداني'
+      price: 'يبدأ من 2,000,000 جنيه سوداني',
+      gradient: 'from-purple-500 to-pink-500'
     },
     {
       icon: '🎨',
       title: 'تصميم UI/UX',
       description: 'تصميم واجهات مستخدم جذابة وتجربة مستخدم متميزة',
       features: ['تصميم حديث', 'سهولة الاستخدام', 'تجربة تفاعلية', 'اختبار المستخدمين'],
-      price: 'يبدأ من 750,000 جنيه سوداني'
+      price: 'يبدأ من 750,000 جنيه سوداني',
+      gradient: 'from-pink-500 to-rose-500'
     },
     {
       icon: '⚡',
       title: 'تحسين الأداء',
       description: 'تحسين أداء المواقع والتطبيقات لضمان سرعة التحميل',
       features: ['تحسين السرعة', 'ضغط الملفات', 'تحسين الصور', 'تحسين قواعد البيانات'],
-      price: 'يبدأ من 990,000 جنيه سوداني'
+      price: 'يبدأ من 990,000 جنيه سوداني',
+      gradient: 'from-yellow-500 to-orange-500'
     },
     {
       icon: '🔧',
       title: 'الصيانة والدعم',
       description: 'خدمات صيانة ودعم فني مستمر للمواقع والتطبيقات',
       features: ['دعم 24/7', 'تحديثات دورية', 'نسخ احتياطية', 'مراقبة الأداء'],
-      price: 'يبدأ من 500,000 جنيه سوداني/شهر'
+      price: 'يبدأ من 500,000 جنيه سوداني/شهر',
+      gradient: 'from-green-500 to-emerald-500'
     },
     {
       icon: '🚀',
       title: 'استشارات تقنية',
       description: 'استشارات تقنية متخصصة لمساعدتك في اتخاذ القرارات الصحيحة',
       features: ['تحليل المتطلبات', 'اختيار التقنيات', 'تخطيط المشاريع', 'إدارة الفرق'],
-      price: 'يبدأ من 200,000 جنيه سوداني/ساعة'
+      price: 'يبدأ من 200,000 جنيه سوداني/ساعة',
+      gradient: 'from-indigo-500 to-purple-500'
     }
   ];
 
-  const backgroundGradient = isDarkMode 
-    ? 'linear-gradient(135deg, #0f172a 0%, #1e293b 25%, #334155 50%, #1e293b 75%, #0f172a 100%)'
-    : 'linear-gradient(135deg, #f8fafc 0%, #f1f5f9 25%, #e2e8f0 50%, #f8fafc 75%, #faf5ff 100%)';
-
   return (
-    <section style={{
-      minHeight: '100vh',
-      background: backgroundGradient,
-      paddingTop: '6rem',
-      position: 'relative',
-      overflow: 'hidden'
-    }}>
+    <section className={`
+      min-h-screen pt-24 relative overflow-hidden
+      ${isDarkMode 
+        ? 'bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900' 
+        : 'bg-gradient-to-br from-slate-50 via-slate-100 to-purple-50'
+      }
+    `}>
       {/* Background decorative elements */}
-      <div style={{
-        position: 'absolute',
-        top: '15%',
-        right: '10%',
-        width: '400px',
-        height: '400px',
-        background: 'linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(147, 51, 234, 0.1))',
-        borderRadius: '50%',
-        filter: 'blur(60px)',
-        zIndex: 0
-      }}></div>
-      <div style={{
-        position: 'absolute',
-        bottom: '10%',
-        left: '5%',
-        width: '300px',
-        height: '300px',
-        background: 'linear-gradient(135deg, rgba(79, 172, 254, 0.1), rgba(0, 242, 254, 0.1))',
-        borderRadius: '50%',
-        filter: 'blur(50px)',
-        zIndex: 0
-      }}></div>
+      <div className="absolute top-[10%] right-[10%] w-[300px] h-[300px] bg-gradient-to-br from-blue-500/10 to-purple-500/10 rounded-full blur-[40px]" />
+      <div className="absolute bottom-[20%] left-[5%] w-[200px] h-[200px] bg-gradient-to-br from-purple-500/10 to-pink-500/10 rounded-full blur-[30px]" />
       
-      <div style={{
-        maxWidth: '1200px',
-        margin: '0 auto',
-        padding: '0 1.5rem',
-        paddingTop: '3rem',
-        paddingBottom: '5rem',
-        position: 'relative',
-        zIndex: 1
-      }}>
+      <div className="max-w-7xl mx-auto px-6 pt-12 pb-20 relative z-10">
         {/* Header */}
-        <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
-          <div style={{ marginBottom: '1.5rem' }}>
-            <span style={{
-              display: 'inline-block',
-              padding: '0.75rem 1.5rem',
-              background: 'linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(147, 51, 234, 0.1))',
-              color: currentColors.accent,
-              borderRadius: '2rem',
-              fontSize: '0.95rem',
-              fontWeight: '600',
-              border: '1px solid rgba(59, 130, 246, 0.2)',
-              backdropFilter: 'blur(10px)'
-            }}>
-              خدماتي المتميزة ⚡
-            </span>
-          </div>
+        <div className="text-center mb-16">
+          <span className={`
+            inline-block px-6 py-3 rounded-full text-sm font-semibold mb-6
+            bg-gradient-to-r from-blue-500/10 to-purple-500/10
+            border backdrop-blur-sm
+            ${isDarkMode ? 'text-blue-400 border-blue-500/20' : 'text-blue-700 border-blue-500/20'}
+          `}>
+            الخدمات المقدمة ⚡
+          </span>
           
-          <h2 style={{
-            fontSize: 'clamp(2.5rem, 6vw, 3.5rem)',
-            fontWeight: '900',
-            color: currentColors.text,
-            marginBottom: '1.5rem',
-            lineHeight: '1.1',
-            letterSpacing: '-0.02em'
-          }}>
-            <span style={{
-              background: 'linear-gradient(135deg, #2563eb 0%, #7c3aed 50%, #9333ea 100%)',
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
-              backgroundClip: 'text'
-            }}>
-              الخدمات
+          <h2 className={`text-5xl md:text-6xl lg:text-7xl font-black mb-6 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
+            <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-purple-700 bg-clip-text text-transparent">
+              خدماتي
             </span>{' '}
-            التي أقدمها
+            المتميزة
           </h2>
           
-          <p style={{
-            fontSize: '1.25rem',
-            color: currentColors.textSecondary,
-            maxWidth: '48rem',
-            margin: '0 auto',
-            lineHeight: '1.6',
-            fontWeight: '500'
-          }}>
-            أقدم مجموعة شاملة من الخدمات التقنية لمساعدتك في تحقيق أهدافك الرقمية
+          <p className={`text-xl md:text-2xl max-w-3xl mx-auto ${isDarkMode ? 'text-gray-300' : 'text-gray-700'}`}>
+            أقدم مجموعة متنوعة من الخدمات التقنية المتخصصة لتلبية احتياجاتك
           </p>
         </div>
 
         {/* Services Grid */}
-        <div style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))',
-          gap: '2rem',
-          marginBottom: '5rem'
-        }}>
+        <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((service, index) => (
             <div
               key={index}
-              style={{
-                background: currentColors.cardBg,
-                backdropFilter: 'blur(20px)',
-                WebkitBackdropFilter: 'blur(20px)',
-                borderRadius: '2rem',
-                padding: '2.5rem',
-                border: `1px solid ${currentColors.cardBorder}`,
-                boxShadow: `0 25px 50px ${currentColors.shadow}`,
-                transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
-                position: 'relative',
-                overflow: 'hidden'
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.transform = 'translateY(-10px) scale(1.02)';
-                e.currentTarget.style.boxShadow = `0 35px 70px ${currentColors.shadowHover}`;
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.transform = 'translateY(0) scale(1)';
-                e.currentTarget.style.boxShadow = `0 25px 50px ${currentColors.shadow}`;
-              }}
+              className={`
+                group backdrop-blur-xl rounded-3xl p-8
+                border shadow-xl
+                hover:-translate-y-3 hover:scale-105
+                transition-all duration-300
+                flex flex-col items-center text-center
+                ${isDarkMode ? 'bg-gray-800/50 border-gray-700' : 'bg-white/50 border-gray-200'}
+              `}
             >
-              {/* Service Icon */}
-              <div style={{
-                fontSize: '3rem',
-                marginBottom: '1.5rem',
-                textAlign: 'center'
-              }}>
+              {/* Icon */}
+              <div className={`
+                w-20 h-20 rounded-2xl flex items-center justify-center text-4xl mb-6
+                bg-gradient-to-br ${service.gradient}
+                shadow-lg group-hover:scale-110 transition-transform duration-300
+              `}>
                 {service.icon}
               </div>
               
-              {/* Service Title */}
-              <h3 style={{
-                fontSize: '1.5rem',
-                fontWeight: '800',
-                color: currentColors.text,
-                marginBottom: '1rem',
-                lineHeight: '1.3',
-                textAlign: 'center'
-              }}>
+              {/* Title */}
+              <h3 className={`text-2xl font-black mb-4 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
                 {service.title}
               </h3>
               
-              {/* Service Description */}
-              <p style={{
-                color: currentColors.textSecondary,
-                marginBottom: '1.5rem',
-                lineHeight: '1.6',
-                textAlign: 'center',
-                fontSize: '1rem'
-              }}>
+              {/* Description */}
+              <p className={`mb-6 text-lg leading-relaxed ${isDarkMode ? 'text-gray-400' : 'text-gray-600'}`}>
                 {service.description}
               </p>
               
-              {/* Features List */}
-              <ul style={{
-                listStyle: 'none',
-                padding: 0,
-                margin: '0 0 1.5rem 0'
-              }}>
-                {service.features.map((feature, featureIndex) => (
-                  <li key={featureIndex} style={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    marginBottom: '0.75rem',
-                    fontSize: '0.9rem',
-                    color: currentColors.textSecondary
-                  }}>
-                    <div style={{
-                      width: '20px',
-                      height: '20px',
-                      background: 'linear-gradient(135deg, #10b981, #059669)',
-                      borderRadius: '50%',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      marginLeft: '0.75rem',
-                      flexShrink: 0
-                    }}>
-                      <span style={{ color: 'white', fontSize: '0.7rem' }}>✓</span>
-                    </div>
-                    {feature}
+              {/* Features */}
+              <ul className="space-y-3 mb-6 w-full">
+                {service.features.map((feature, idx) => (
+                  <li key={idx} className="flex items-center justify-center gap-3">
+                    <span className={`
+                      w-2 h-2 rounded-full bg-gradient-to-r ${service.gradient}
+                    `} />
+                    <span className={`text-base ${isDarkMode ? 'text-gray-300' : 'text-gray-700'}`}>
+                      {feature}
+                    </span>
                   </li>
                 ))}
               </ul>
               
               {/* Price */}
-              <div style={{
-                textAlign: 'center',
-                padding: '1rem',
-                background: 'linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(147, 51, 234, 0.1))',
-                borderRadius: '1rem',
-                border: '1px solid rgba(59, 130, 246, 0.2)',
-                marginTop: '1.5rem'
-              }}>
-                <span style={{
-                  fontSize: '1.1rem',
-                  fontWeight: '700',
-                  color: currentColors.accent
-                }}>
+              <div className={`
+                pt-6 border-t w-full
+                ${isDarkMode ? 'border-gray-700' : 'border-gray-200'}
+              `}>
+                <p className={`text-xl font-bold bg-gradient-to-r ${service.gradient} bg-clip-text text-transparent`}>
                   {service.price}
-                </span>
+                </p>
               </div>
             </div>
           ))}
         </div>
 
         {/* CTA Section */}
-        <div style={{
-          textAlign: 'center',
-          padding: '4rem 2rem',
-          background: currentColors.cardBg,
-          borderRadius: '2rem',
-          border: `1px solid ${currentColors.cardBorder}`,
-          boxShadow: `0 25px 50px ${currentColors.shadow}`,
-          backdropFilter: 'blur(20px)'
-        }}>
-          <h3 style={{
-            fontSize: '2rem',
-            fontWeight: '800',
-            color: currentColors.text,
-            marginBottom: '1rem'
-          }}>
-            هل أنت مستعد لبدء مشروعك؟
+        <div className={`
+          mt-20 backdrop-blur-xl rounded-3xl p-12 text-center
+          border shadow-2xl
+          ${isDarkMode ? 'bg-gray-800/50 border-gray-700' : 'bg-white/50 border-gray-200'}
+        `}>
+          <h3 className={`text-3xl font-black mb-4 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
+            هل لديك مشروع في ذهنك؟
           </h3>
-          <p style={{
-            fontSize: '1.1rem',
-            color: currentColors.textSecondary,
-            marginBottom: '2rem',
-            maxWidth: '600px',
-            margin: '0 auto 2rem auto'
-          }}>
-            تواصل معي الآن للحصول على استشارة مجانية ومناقشة متطلبات مشروعك
+          <p className={`text-lg mb-8 ${isDarkMode ? 'text-gray-300' : 'text-gray-700'}`}>
+            دعنا نحول فكرتك إلى واقع رقمي مذهل
           </p>
-          <div style={{
-            display: 'flex',
-            gap: '1rem',
-            justifyContent: 'center',
-            flexWrap: 'wrap'
-          }}>
-            <button style={{
-              background: 'linear-gradient(135deg, #2563eb 0%, #7c3aed 50%, #9333ea 100%)',
-              color: 'white',
-              padding: '1.25rem 2.5rem',
-              borderRadius: '1rem',
-              fontWeight: '700',
-              border: 'none',
-              cursor: 'pointer',
-              transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
-              fontSize: '1.1rem',
-              boxShadow: '0 8px 25px rgba(37, 99, 235, 0.3)'
-            }}
-            onMouseEnter={(e) => {
-              e.target.style.transform = 'translateY(-3px) scale(1.05)';
-              e.target.style.boxShadow = '0 15px 35px rgba(37, 99, 235, 0.4)';
-            }}
-            onMouseLeave={(e) => {
-              e.target.style.transform = 'translateY(0) scale(1)';
-              e.target.style.boxShadow = '0 8px 25px rgba(37, 99, 235, 0.3)';
-            }}>
-              ابدأ مشروعك الآن 🚀
-            </button>
-            <button style={{
-              background: currentColors.cardBg,
-              color: currentColors.accent,
-              border: `2px solid ${currentColors.accent}`,
-              padding: '1.25rem 2.5rem',
-              borderRadius: '1rem',
-              fontWeight: '700',
-              cursor: 'pointer',
-              transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
-              fontSize: '1.1rem',
-              backdropFilter: 'blur(10px)',
-              boxShadow: `0 4px 15px ${currentColors.shadow}`
-            }}
-            onMouseEnter={(e) => {
-              e.target.style.backgroundColor = currentColors.accent;
-              e.target.style.color = 'white';
-              e.target.style.transform = 'translateY(-3px) scale(1.05)';
-            }}
-            onMouseLeave={(e) => {
-              e.target.style.backgroundColor = currentColors.cardBg;
-              e.target.style.color = currentColors.accent;
-              e.target.style.transform = 'translateY(0) scale(1)';
-            }}>
-              استشارة مجانية 💬
-            </button>
-          </div>
+          <button 
+            onClick={() => setIsDialogOpen(true)}
+            className="
+              bg-gradient-to-r from-blue-600 via-purple-600 to-purple-700
+              text-white px-12 py-5 rounded-xl font-bold text-lg
+              shadow-[0_8px_25px_rgba(37,99,235,0.3)]
+              hover:shadow-[0_15px_35px_rgba(37,99,235,0.4)]
+              hover:-translate-y-1 hover:scale-105
+              transition-all duration-300
+            "
+          >
+            ابدأ مشروعك الآن 🚀
+          </button>
         </div>
       </div>
+
+      {/* Project Dialog */}
+      <ProjectDialog 
+        isOpen={isDialogOpen} 
+        onClose={() => setIsDialogOpen(false)} 
+      />
     </section>
   );
 };

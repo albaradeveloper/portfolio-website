@@ -1,44 +1,10 @@
-/* Global Theme Styles */
-
-/* Light Mode */
-.light-mode {
-  --bg-primary: #ffffff;
-  --bg-secondary: #f8fafc;
-  --bg-tertiary: #f1f5f9;
-  --text-primary: #0f172a;
-  --text-secondary: #475569;
-  --text-muted: #64748b;
-  --border-color: rgba(226, 232, 240, 0.6);
-  --shadow-color: rgba(0, 0, 0, 0.1);
-  --accent-color: #2563eb;
-}
-
-.light-mode {
-  background-color: #ffffff !important;
-  color: #0f172a !important;
-}
-
-/* Dark Mode */
-.dark-mode {
-  --bg-primary: #0f172a;
-  --bg-secondary: #1e293b;
-  --bg-tertiary: #334155;
-  --text-primary: #f8fafc;
-  --text-secondary: #cbd5e1;
-  --text-muted: #94a3b8;
-  --border-color: rgba(51, 65, 85, 0.6);
-  --shadow-color: rgba(0, 0, 0, 0.3);
-  --accent-color: #3b82f6;
-}
-
-.dark-mode {
-  background-color: #0f172a !important;
-  color: #f8fafc !important;
-}
+/* Theme.css - Minimal theme utilities */
 
 /* Smooth transitions for theme changes */
 * {
-  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+  transition-property: background-color, border-color, color;
+  transition-duration: 300ms;
+  transition-timing-function: ease;
 }
 
 /* Ensure body background is applied */
@@ -46,13 +12,10 @@ html, body {
   margin: 0;
   padding: 0;
   min-height: 100vh;
-  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Override any conflicting styles */
 #root {
   min-height: 100vh;
-  background: transparent;
 }
 
 /* Custom scrollbar for dark mode */
@@ -74,103 +37,35 @@ html, body {
 }
 
 /* Light mode scrollbar */
-.light-mode::-webkit-scrollbar {
+::-webkit-scrollbar {
   width: 8px;
 }
 
-.light-mode::-webkit-scrollbar-track {
+::-webkit-scrollbar-track {
   background: #f1f5f9;
 }
 
-.light-mode::-webkit-scrollbar-thumb {
+::-webkit-scrollbar-thumb {
   background: #cbd5e1;
   border-radius: 4px;
 }
 
-.light-mode::-webkit-scrollbar-thumb:hover {
+::-webkit-scrollbar-thumb:hover {
   background: #94a3b8;
 }
 
-/* Desktop navigation visibility */
-@media (min-width: 768px) {
-  .desktop-nav {
-    display: block !important;
-  }
-  
-  .mobile-nav {
-    display: none !important;
-  }
-}
-
-/* Mobile navigation visibility */
-@media (max-width: 767px) {
-  .desktop-nav {
-    display: none !important;
-  }
-  
-  .mobile-nav {
-    display: flex !important;
-  }
-}
-
-/* Theme toggle animation */
-.theme-toggle {
-  position: relative;
-  overflow: hidden;
-}
-
-.theme-toggle::before {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 0;
-  height: 0;
-  background: radial-gradient(circle, rgba(59, 130, 246, 0.3) 0%, transparent 70%);
-  border-radius: 50%;
-  transform: translate(-50%, -50%);
-  transition: all 0.6s ease;
-  pointer-events: none;
-}
-
-.theme-toggle:hover::before {
-  width: 100px;
-  height: 100px;
-}
-
-/* Gradient text animation */
-.gradient-text {
-  background: linear-gradient(135deg, #2563eb 0%, #7c3aed 50%, #9333ea 100%);
-  background-size: 200% 200%;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  animation: gradientShift 3s ease-in-out infinite;
-}
-
-@keyframes gradientShift {
-  0%, 100% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
 }
 
 /* Enhanced focus styles for accessibility */
-.dark-mode button:focus,
-.dark-mode a:focus {
-  outline: 2px solid #3b82f6;
-  outline-offset: 2px;
-}
-
-.light-mode button:focus,
-.light-mode a:focus {
+*:focus-visible {
   outline: 2px solid #2563eb;
   outline-offset: 2px;
 }
 
-/* Smooth page transitions */
+/* Page transitions */
 .page-transition {
   animation: fadeInUp 0.6s ease-out;
 }

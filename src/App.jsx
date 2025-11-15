@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import './App.css';
 import './styles/theme.css';
-import './styles/responsive.css';
 import { ThemeProvider, useTheme } from './contexts/ThemeContext';
 import Navbar from './components/Navbar';
 import Home from './components/Home';
