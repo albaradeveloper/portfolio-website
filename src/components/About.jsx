@@ -17,7 +17,7 @@ const About = () => {
       title: 'مطور واجهات المستخدم ',
       company: 'شركة التقنية المتقدمة',
       period: '2025 - الآن',
-      description: 'تطوير واجهات مستخدم تفاعلية بستجدام ReactJS,TailwindCSS'
+      description: 'تطوير واجهات مستخدم تفاعلية بستخدام ReactJS,TailwindCSS'
     },
     {
       title: 'مطور تطبيقات الموبايل',
@@ -29,7 +29,7 @@ const About = () => {
       title: 'مطور باك إند',
       company: 'شركة الحلول التقنية',
       period: '2020 - 2021',
-      description: 'تطوير الواجهات لخلفية بستخدام Express.JS,MangoDB'
+      description: 'تطوير الواجهات الخلفية بستخدام Express.JS,MangoDB'
     }
   ];
 
@@ -267,7 +267,7 @@ const About = () => {
               <h4 className={`text-xl font-black mb-2 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
                 GDSC
               </h4>
-              <p className="text-green-600 font-semibold">من Google - 2020</p>
+              <p className="text-green-600 font-semibold">Google - 2020</p>
             </div>
             
             <div className={`
@@ -278,9 +278,9 @@ const About = () => {
             `}>
               <div className="text-5xl mb-4">📜</div>
               <h4 className={`text-xl font-black mb-2 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
-                شهادات متقدمة
+                شهادات أخرى
               </h4>
-              <p className="text-purple-600 font-semibold">في تطوير الويب</p>
+              <p className="text-purple-600 font-semibold">SoloLerin</p>
             </div>
           </div>
         </div>
