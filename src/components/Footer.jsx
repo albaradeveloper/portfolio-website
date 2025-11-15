@@ -1,6 +1,10 @@
+import { useSelector, useDispatch } from 'react-redux';
+import { setActiveSection } from '../store/slices/navigationSlice';
 import { useTheme } from '../contexts/ThemeContext';
 
-const Footer = ({ activeSection, setActiveSection }) => {
+const Footer = () => {
+  const activeSection = useSelector((state) => state.navigation.activeSection);
+  const dispatch = useDispatch();
   const { isDarkMode } = useTheme();
   const currentYear = new Date().getFullYear();
 
@@ -102,7 +106,7 @@ const Footer = ({ activeSection, setActiveSection }) => {
               {quickLinks.map((link) => (
                 <li key={link.id}>
                   <button
-                    onClick={() => setActiveSection(link.id)}
+                    onClick={() => dispatch(setActiveSection(link.id))}
                     className={`
                       text-right transition-all duration-300
                       hover:translate-x-2
@@ -191,7 +195,7 @@ const Footer = ({ activeSection, setActiveSection }) => {
             © {currentYear} AL-Bara Dev. جميع الحقوق محفوظة.
           </p>
           <p className={`text-xs mt-2 ${isDarkMode ? 'text-gray-500' : 'text-gray-500'}`}>
-            صُنع بـ ❤️ باستخدام React و Tailwind CSS
+            صُنع بـ ❤️ في السودان
           </p>
         </div>
       </div>

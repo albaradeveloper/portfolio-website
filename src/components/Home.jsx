@@ -1,6 +1,9 @@
+import { useDispatch } from 'react-redux';
+import { setActiveSection } from '../store/slices/navigationSlice';
 import { useTheme } from '../contexts/ThemeContext';
 
-const Home = ({ setActiveSection }) => {
+const Home = () => {
+  const dispatch = useDispatch();
   const { isDarkMode } = useTheme();
 
   return (
@@ -66,7 +69,7 @@ const Home = ({ setActiveSection }) => {
             {/* Buttons */}
             <div className="flex gap-4 mt-12 flex-wrap">
               <button 
-                onClick={() => setActiveSection('contact')}
+                onClick={() => dispatch(setActiveSection('contact'))}
                 className="
                   bg-gradient-to-r from-blue-600 via-purple-600 to-purple-700
                   text-white px-10 py-4 rounded-xl font-bold text-lg

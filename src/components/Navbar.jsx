@@ -1,7 +1,11 @@
 import { useState, useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { setActiveSection } from '../store/slices/navigationSlice';
 import { useTheme } from '../contexts/ThemeContext';
 
-const Navbar = ({ activeSection, setActiveSection }) => {
+const Navbar = () => {
+  const activeSection = useSelector((state) => state.navigation.activeSection);
+  const dispatch = useDispatch();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
@@ -86,7 +90,7 @@ const Navbar = ({ activeSection, setActiveSection }) => {
         <div className="w-full mx-auto px-8 flex justify-between items-center h-[4.5rem] transition-all duration-400">
           {/* Logo */}
           <div 
-            onClick={() => setActiveSection('home')} 
+            onClick={() => dispatch(setActiveSection('home'))} 
             className="cursor-pointer"
           >
             <h1 className="text-[1.75rem] font-black bg-gradient-to-r from-blue-600 via-purple-600 to-purple-700 bg-clip-text text-transparent m-0 flex items-center gap-2 tracking-tight">
@@ -108,7 +112,7 @@ const Navbar = ({ activeSection, setActiveSection }) => {
               {navItems.map((item) => (
                 <button
                   key={item.id}
-                  onClick={() => setActiveSection(item.id)}
+                  onClick={() => dispatch(setActiveSection(item.id))}
                   className={`
                     px-5 py-3 rounded-[1rem] text-[0.95rem] font-bold
                     border-none cursor-pointer transition-all duration-400
@@ -218,7 +222,7 @@ const Navbar = ({ activeSection, setActiveSection }) => {
                 <button
                   key={item.id}
                   onClick={() => {
-                    setActiveSection(item.id);
+                    dispatch(setActiveSection(item.id));
                     setIsMenuOpen(false);
                   }}
                   className={`

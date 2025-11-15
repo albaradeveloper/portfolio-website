@@ -14,22 +14,22 @@ const About = () => {
 
   const experiences = [
     {
-      title: 'مطور ويب أول',
+      title: 'مطور واجهات المستخدم ',
       company: 'شركة التقنية المتقدمة',
-      period: '2022 - الآن',
-      description: 'تطوير تطبيقات ويب متقدمة باستخدام React و Node.js'
+      period: '2025 - الآن',
+      description: 'تطوير واجهات مستخدم تفاعلية بستجدام ReactJS,TailwindCSS'
     },
     {
-      title: 'مطور فرونت إند',
+      title: 'مطور تطبيقات الموبايل',
       company: 'استوديو الإبداع الرقمي',
-      period: '2021 - 2022',
-      description: 'تصميم وتطوير واجهات المستخدم التفاعلية'
+      period: '2022 - 2023',
+      description: 'تطوير تطبيقات الموبايل بستخدام Flutter Freamwork'
     },
     {
-      title: 'مطور مبتدئ',
+      title: 'مطور باك إند',
       company: 'شركة الحلول التقنية',
       period: '2020 - 2021',
-      description: 'تعلم أساسيات تطوير الويب والعمل في فريق'
+      description: 'تطوير الواجهات لخلفية بستخدام Express.JS,MangoDB'
     }
   ];
 

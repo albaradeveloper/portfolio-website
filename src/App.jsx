@@ -1,7 +1,10 @@
-import { useState } from 'react';
 import './App.css';
 import './styles/theme.css';
+import { Provider } from 'react-redux';
+import { store } from './store/store';
 import { ThemeProvider, useTheme } from './contexts/ThemeContext';
+import { useSelector } from 'react-redux';
+import usePageTitle from './hooks/usePageTitle';
 import Navbar from './components/Navbar';
 import Home from './components/Home';
 import About from './components/About';
@@ -10,13 +13,16 @@ import Contact from './components/Contact';
 import Footer from './components/Footer';
 
 const AppContent = () => {
-  const [activeSection, setActiveSection] = useState('home');
+  const activeSection = useSelector((state) => state.navigation.activeSection);
   const { currentColors } = useTheme();
+  
+  // تحديث عنوان الصفحة حسب القسم النشط
+  usePageTitle(activeSection);
 
   const renderSection = () => {
     switch (activeSection) {
       case 'home':
-        return <Home setActiveSection={setActiveSection} />;
+        return <Home />;
       case 'about':
         return <About />;
       case 'services':
@@ -24,7 +30,7 @@ const AppContent = () => {
       case 'contact':
         return <Contact />;
       default:
-        return <Home setActiveSection={setActiveSection} />;
+        return <Home />;
     }
   };
 
@@ -37,21 +43,23 @@ const AppContent = () => {
         color: currentColors.text
       }}
     >
-      <Navbar activeSection={activeSection} setActiveSection={setActiveSection} />
+      <Navbar />
       <main>
         {renderSection()}
       </main>
       
-      <Footer activeSection={activeSection} setActiveSection={setActiveSection} />
+      <Footer />
     </div>
   );
 };
 
 function App() {
   return (
-    <ThemeProvider>
-      <AppContent />
-    </ThemeProvider>
+    <Provider store={store}>
+      <ThemeProvider>
+        <AppContent />
+      </ThemeProvider>
+    </Provider>
   );
 }
 
