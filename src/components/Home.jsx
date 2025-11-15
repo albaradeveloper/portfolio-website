@@ -174,7 +174,7 @@ const Home = ({ setActiveSection }) => {
                   }
                 `}>
                   <img
-                    src="/pro.jpg"
+                    src="./public/pro.jpg"
                     alt="AL-Bara - مطور ويب متخصص"
                     className="w-full h-full object-cover rounded-full"
                     onError={(e) => {
