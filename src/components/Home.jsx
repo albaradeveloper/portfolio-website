@@ -10,13 +10,13 @@ const Home = () => {
     <section className={`
       min-h-screen pt-24 relative overflow-hidden
       ${isDarkMode 
-        ? 'bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900' 
-        : 'bg-gradient-to-br from-slate-50 via-slate-100 to-purple-50'
+        ? 'bg-gradient-to-br from-dark-950 via-dark-900 to-dark-950' 
+        : 'bg-gradient-to-br from-white via-primary-50 to-primary-100'
       }
     `}>
       {/* Background decorative elements */}
-      <div className="absolute top-[10%] right-[10%] w-[300px] h-[300px] bg-gradient-to-br from-blue-500/10 to-purple-500/10 rounded-full blur-[40px] z-0" />
-      <div className="absolute bottom-[20%] left-[5%] w-[200px] h-[200px] bg-gradient-to-br from-purple-500/10 to-blue-500/10 rounded-full blur-[30px] z-0" />
+      <div className="absolute top-[10%] right-[10%] w-[300px] h-[300px] bg-gradient-to-br from-primary-400/15 to-primary-600/10 rounded-full blur-[40px] z-0" />
+      <div className="absolute bottom-[20%] left-[5%] w-[200px] h-[200px] bg-gradient-to-br from-primary-500/10 to-primary-400/15 rounded-full blur-[30px] z-0" />
       
       <div className="max-w-7xl mx-auto px-6 pt-12 pb-20 relative z-10">
         {/* Main Grid */}
@@ -27,11 +27,11 @@ const Home = () => {
             <div className="mb-8">
               <span className={`
                 inline-block px-6 py-3 rounded-full text-sm font-semibold
-                bg-gradient-to-r from-blue-500/10 to-purple-500/10
+                bg-gradient-to-r from-primary-400/15 to-primary-500/10
                 border backdrop-blur-sm
                 ${isDarkMode 
-                  ? 'text-blue-400 border-blue-500/20' 
-                  : 'text-blue-700 border-blue-500/20'
+                  ? 'text-primary-400 border-primary-500/30' 
+                  : 'text-primary-700 border-primary-500/30'
                 }
               `}>
                 مرحباً بك في موقعي الشخصي ✨
@@ -41,10 +41,10 @@ const Home = () => {
             {/* Main Heading */}
             <h1 className={`
               text-5xl md:text-6xl lg:text-7xl font-black leading-tight tracking-tight
-              ${isDarkMode ? 'text-white' : 'text-gray-900'}
+              ${isDarkMode ? 'text-white' : 'text-dark-950'}
             `}>
               أنا{' '}
-              <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-purple-700 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-primary-500 via-primary-600 to-primary-700 bg-clip-text text-transparent">
                 البراء المغواري
               </span>
             </h1>
@@ -52,7 +52,7 @@ const Home = () => {
             {/* Subtitle */}
             <h2 className={`
               text-2xl md:text-3xl lg:text-4xl font-semibold
-              ${isDarkMode ? 'text-gray-300' : 'text-gray-700'}
+              ${isDarkMode ? 'text-dark-100' : 'text-dark-700'}
             `}>
               مطور ويب متخصص في التقنيات الحديثة
             </h2>
@@ -60,7 +60,7 @@ const Home = () => {
             {/* Description */}
             <p className={`
               text-xl md:text-2xl leading-relaxed max-w-2xl
-              ${isDarkMode ? 'text-gray-400' : 'text-gray-600'}
+              ${isDarkMode ? 'text-dark-200' : 'text-dark-600'}
             `}>
               أقوم بتطوير مواقع ويب وتطبيقات حديثة باستخدام أحدث التقنيات مثل React و NextJS و Flutter. 
               أسعى لتقديم حلول مبتكرة وتجارب مستخدم استثنائية.
@@ -71,10 +71,10 @@ const Home = () => {
               <button 
                 onClick={() => dispatch(setActiveSection('contact'))}
                 className="
-                  bg-gradient-to-r from-blue-600 via-purple-600 to-purple-700
-                  text-white px-10 py-4 rounded-xl font-bold text-lg
-                  shadow-[0_8px_25px_rgba(37,99,235,0.3)]
-                  hover:shadow-[0_15px_35px_rgba(37,99,235,0.4)]
+                  bg-gradient-to-r from-primary-500 via-primary-600 to-primary-700
+                  text-dark-950 px-10 py-4 rounded-xl font-black text-lg
+                  shadow-[0_8px_25px_rgba(245,158,11,0.4)]
+                  hover:shadow-[0_15px_35px_rgba(245,158,11,0.5)]
                   hover:-translate-y-1 hover:scale-105
                   transition-all duration-300
                 "
@@ -89,8 +89,8 @@ const Home = () => {
                   transition-all duration-300
                   hover:-translate-y-1 hover:scale-105
                   ${isDarkMode
-                    ? 'bg-gray-800/50 text-blue-400 border-blue-500/30 hover:bg-blue-600 hover:text-white hover:border-blue-600'
-                    : 'bg-white/50 text-blue-600 border-blue-500/30 hover:bg-blue-600 hover:text-white hover:border-blue-600'
+                    ? 'bg-dark-800/50 text-primary-400 border-primary-500/30 hover:bg-primary-600 hover:text-dark-950 hover:border-primary-600'
+                    : 'bg-white/50 text-primary-600 border-primary-500/30 hover:bg-primary-600 hover:text-dark-950 hover:border-primary-600'
                   }
                 `}
               >
@@ -163,17 +163,17 @@ const Home = () => {
               {/* Main avatar container */}
               <div className="
                 w-80 h-80 rounded-full p-1.5
-                bg-gradient-to-br from-blue-600 via-purple-600 to-purple-700
-                shadow-[0_20px_40px_rgba(37,99,235,0.3)]
-                hover:scale-105 hover:shadow-[0_25px_50px_rgba(37,99,235,0.4)]
+                bg-gradient-to-br from-primary-500 via-primary-600 to-primary-700
+                shadow-[0_20px_40px_rgba(245,158,11,0.4)]
+                hover:scale-105 hover:shadow-[0_25px_50px_rgba(245,158,11,0.5)]
                 transition-all duration-300
               ">
                 <div className={`
                   w-full h-full rounded-full p-2
                   shadow-inner border-2
                   ${isDarkMode 
-                    ? 'bg-gray-800 border-gray-700' 
-                    : 'bg-white border-gray-200'
+                    ? 'bg-dark-800 border-dark-700' 
+                    : 'bg-white border-primary-200'
                   }
                 `}>
                   <img
@@ -204,11 +204,11 @@ const Home = () => {
               
               <div className="
                 absolute top-1/2 -left-7 w-12 h-12
-                bg-gradient-to-br from-purple-500 to-purple-700
+                bg-gradient-to-br from-primary-500 to-primary-700
                 rounded-full flex items-center justify-center text-base
-                shadow-[0_6px_15px_rgba(139,92,246,0.4)]
+                shadow-[0_6px_15px_rgba(245,158,11,0.4)]
                 border-2 border-white
-                hover:scale-110 hover:shadow-[0_8px_20px_rgba(139,92,246,0.5)]
+                hover:scale-110 hover:shadow-[0_8px_20px_rgba(245,158,11,0.5)]
                 transition-all duration-300 cursor-pointer
                 animate-pulse
               " title="ابتكار وإبداع">
@@ -223,22 +223,22 @@ const Home = () => {
           grid grid-cols-2 md:grid-cols-4 gap-6 mt-24 p-12 rounded-3xl
           backdrop-blur-xl border
           ${isDarkMode 
-            ? 'bg-gray-800/50 border-gray-700' 
-            : 'bg-white/50 border-gray-200'
+            ? 'bg-dark-800/50 border-primary-500/20' 
+            : 'bg-white/50 border-primary-500/20'
           }
-          shadow-[0_20px_40px_rgba(0,0,0,0.1)]
+          shadow-[0_20px_40px_rgba(245,158,11,0.15)]
         `}>
           {/* Stat 1 */}
           <div className="
             text-center p-6 rounded-xl
-            bg-gradient-to-br from-blue-500/10 to-purple-500/5
-            border border-blue-500/20
+            bg-gradient-to-br from-primary-400/15 to-primary-500/5
+            border border-primary-500/30
             hover:-translate-y-2 transition-transform duration-300
           ">
-            <div className="text-5xl font-black bg-gradient-to-r from-blue-600 to-purple-700 bg-clip-text text-transparent mb-2">
+            <div className="text-5xl font-black bg-gradient-to-r from-primary-500 to-primary-700 bg-clip-text text-transparent mb-2">
               5+
             </div>
-            <div className={`font-semibold ${isDarkMode ? 'text-gray-400' : 'text-gray-600'}`}>
+            <div className={`font-semibold ${isDarkMode ? 'text-dark-200' : 'text-dark-600'}`}>
               مشروع مكتمل
             </div>
           </div>
@@ -246,14 +246,14 @@ const Home = () => {
           {/* Stat 2 */}
           <div className="
             text-center p-6 rounded-xl
-            bg-gradient-to-br from-green-500/10 to-emerald-500/5
-            border border-green-500/20
+            bg-gradient-to-br from-primary-400/15 to-primary-500/5
+            border border-primary-500/30
             hover:-translate-y-2 transition-transform duration-300
           ">
-            <div className="text-5xl font-black bg-gradient-to-r from-green-600 to-emerald-700 bg-clip-text text-transparent mb-2">
+            <div className="text-5xl font-black bg-gradient-to-r from-primary-500 to-primary-700 bg-clip-text text-transparent mb-2">
               13+
             </div>
-            <div className={`font-semibold ${isDarkMode ? 'text-gray-400' : 'text-gray-600'}`}>
+            <div className={`font-semibold ${isDarkMode ? 'text-dark-200' : 'text-dark-600'}`}>
               عميل راضي
             </div>
           </div>
@@ -261,14 +261,14 @@ const Home = () => {
           {/* Stat 3 */}
           <div className="
             text-center p-6 rounded-xl
-            bg-gradient-to-br from-yellow-500/10 to-orange-500/5
-            border border-yellow-500/20
+            bg-gradient-to-br from-primary-400/15 to-primary-500/5
+            border border-primary-500/30
             hover:-translate-y-2 transition-transform duration-300
           ">
-            <div className="text-5xl font-black bg-gradient-to-r from-yellow-600 to-orange-700 bg-clip-text text-transparent mb-2">
+            <div className="text-5xl font-black bg-gradient-to-r from-primary-500 to-primary-700 bg-clip-text text-transparent mb-2">
               4+
             </div>
-            <div className={`font-semibold ${isDarkMode ? 'text-gray-400' : 'text-gray-600'}`}>
+            <div className={`font-semibold ${isDarkMode ? 'text-dark-200' : 'text-dark-600'}`}>
               سنوات خبرة
             </div>
           </div>
@@ -276,14 +276,14 @@ const Home = () => {
           {/* Stat 4 */}
           <div className="
             text-center p-6 rounded-xl
-            bg-gradient-to-br from-purple-500/10 to-purple-700/5
-            border border-purple-500/20
+            bg-gradient-to-br from-primary-400/15 to-primary-500/5
+            border border-primary-500/30
             hover:-translate-y-2 transition-transform duration-300
           ">
-            <div className="text-5xl font-black bg-gradient-to-r from-purple-600 to-purple-800 bg-clip-text text-transparent mb-2">
+            <div className="text-5xl font-black bg-gradient-to-r from-primary-500 to-primary-700 bg-clip-text text-transparent mb-2">
               24/7
             </div>
-            <div className={`font-semibold ${isDarkMode ? 'text-gray-400' : 'text-gray-600'}`}>
+            <div className={`font-semibold ${isDarkMode ? 'text-dark-200' : 'text-dark-600'}`}>
               دعم فني
             </div>
           </div>

@@ -4,12 +4,12 @@ const About = () => {
   const { isDarkMode } = useTheme();
   
   const skills = [
-    { name: 'React', level: 90, gradient: 'from-cyan-400 to-blue-600' },
-    { name: 'JavaScript', level: 97, gradient: 'from-yellow-400 to-yellow-600' },
-    { name: 'NextJS', level: 85, gradient: 'from-gray-800 to-gray-600' },
-    { name: 'TailwindCSS', level: 80, gradient: 'from-cyan-500 to-blue-600' },
-    { name: 'Flutter', level: 87, gradient: 'from-blue-500 to-blue-700' },
-    { name: 'MongoDB', level: 70, gradient: 'from-green-500 to-green-700' }
+    { name: 'React', level: 90, gradient: 'from-primary-400 to-primary-600' },
+    { name: 'JavaScript', level: 97, gradient: 'from-primary-500 to-primary-700' },
+    { name: 'NextJS', level: 85, gradient: 'from-dark-800 to-dark-600' },
+    { name: 'TailwindCSS', level: 80, gradient: 'from-primary-400 to-primary-600' },
+    { name: 'Flutter', level: 87, gradient: 'from-primary-500 to-primary-700' },
+    { name: 'MongoDB', level: 70, gradient: 'from-primary-600 to-primary-800' }
   ];
 
   const experiences = [
@@ -37,13 +37,13 @@ const About = () => {
     <section className={`
       min-h-screen pt-24 relative overflow-hidden
       ${isDarkMode 
-        ? 'bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900' 
-        : 'bg-gradient-to-br from-slate-50 via-slate-100 to-purple-50'
+        ? 'bg-gradient-to-br from-dark-950 via-dark-900 to-dark-950' 
+        : 'bg-gradient-to-br from-white via-primary-50 to-primary-100'
       }
     `}>
       {/* Background decorative elements */}
-      <div className="absolute top-[10%] right-[10%] w-[300px] h-[300px] bg-gradient-to-br from-blue-500/10 to-purple-500/10 rounded-full blur-[40px]" />
-      <div className="absolute bottom-[20%] left-[5%] w-[200px] h-[200px] bg-gradient-to-br from-green-500/10 to-emerald-500/10 rounded-full blur-[30px]" />
+      <div className="absolute top-[10%] right-[10%] w-[300px] h-[300px] bg-gradient-to-br from-primary-400/15 to-primary-600/10 rounded-full blur-[40px]" />
+      <div className="absolute bottom-[20%] left-[5%] w-[200px] h-[200px] bg-gradient-to-br from-primary-500/10 to-primary-400/15 rounded-full blur-[30px]" />
       
       <div className="max-w-7xl mx-auto px-6 pt-12 pb-20 relative z-10">
         {/* Header */}

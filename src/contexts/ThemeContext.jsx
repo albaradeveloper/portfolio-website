@@ -24,13 +24,13 @@ export const ThemeProvider = ({ children }) => {
   // تطبيق الخلفية فور التحميل
   useEffect(() => {
     if (isDarkMode) {
-      document.body.style.backgroundColor = '#0f172a';
-      document.body.style.color = '#f8fafc';
+      document.body.style.backgroundColor = '#0a0a0a';
+      document.body.style.color = '#ffffff';
       document.body.classList.add('dark-mode');
       document.body.classList.remove('light-mode');
     } else {
       document.body.style.backgroundColor = '#ffffff';
-      document.body.style.color = '#0f172a';
+      document.body.style.color = '#0a0a0a';
       document.body.classList.add('light-mode');
       document.body.classList.remove('dark-mode');
     }
@@ -40,69 +40,69 @@ export const ThemeProvider = ({ children }) => {
     light: {
       // الخلفيات
       bg: '#ffffff',
-      bgSecondary: '#f8fafc',
-      bgTertiary: '#f1f5f9',
+      bgSecondary: '#fffbeb',
+      bgTertiary: '#fef3c7',
       
       // النصوص
-      text: '#0f172a',
-      textSecondary: '#475569',
-      textMuted: '#64748b',
+      text: '#0a0a0a',
+      textSecondary: '#212529',
+      textMuted: '#495057',
       
       // النافبار
-      navbarBg: 'rgba(255, 255, 255, 0.85)',
-      navbarBorder: 'rgba(226, 232, 240, 0.6)',
+      navbarBg: 'rgba(255, 255, 255, 0.90)',
+      navbarBorder: 'rgba(245, 158, 11, 0.2)',
       
       // الحدود والظلال
-      border: 'rgba(226, 232, 240, 0.6)',
-      shadow: 'rgba(0, 0, 0, 0.1)',
-      shadowHover: 'rgba(0, 0, 0, 0.15)',
+      border: 'rgba(245, 158, 11, 0.2)',
+      shadow: 'rgba(245, 158, 11, 0.15)',
+      shadowHover: 'rgba(245, 158, 11, 0.25)',
       
       // الأزرار
-      buttonBg: 'rgba(248, 250, 252, 0.8)',
-      buttonHover: 'rgba(241, 245, 249, 0.9)',
+      buttonBg: 'rgba(255, 251, 235, 0.8)',
+      buttonHover: 'rgba(254, 243, 199, 0.9)',
       
       // الكروت
-      cardBg: 'rgba(255, 255, 255, 0.8)',
-      cardBorder: 'rgba(255, 255, 255, 0.3)',
+      cardBg: 'rgba(255, 255, 255, 0.9)',
+      cardBorder: 'rgba(245, 158, 11, 0.15)',
       
       // الألوان المميزة
-      accent: '#2563eb',
-      accentHover: '#1d4ed8',
+      accent: '#f59e0b',
+      accentHover: '#d97706',
       success: '#10b981',
-      warning: '#f59e0b',
+      warning: '#fbbf24',
       error: '#ef4444'
     },
     dark: {
       // الخلفيات
-      bg: '#0f172a',
-      bgSecondary: '#1e293b',
-      bgTertiary: '#334155',
+      bg: '#0a0a0a',
+      bgSecondary: '#212529',
+      bgTertiary: '#343a40',
       
       // النصوص
-      text: '#f8fafc',
-      textSecondary: '#cbd5e1',
-      textMuted: '#94a3b8',
+      text: '#ffffff',
+      textSecondary: '#f8f9fa',
+      textMuted: '#dee2e6',
       
       // النافبار
-      navbarBg: 'rgba(30, 41, 59, 0.85)',
-      navbarBorder: 'rgba(51, 65, 85, 0.6)',
+      navbarBg: 'rgba(33, 37, 41, 0.90)',
+      navbarBorder: 'rgba(245, 158, 11, 0.3)',
       
       // الحدود والظلال
-      border: 'rgba(51, 65, 85, 0.6)',
-      shadow: 'rgba(0, 0, 0, 0.3)',
-      shadowHover: 'rgba(0, 0, 0, 0.4)',
+      border: 'rgba(245, 158, 11, 0.3)',
+      shadow: 'rgba(245, 158, 11, 0.2)',
+      shadowHover: 'rgba(245, 158, 11, 0.3)',
       
       // الأزرار
-      buttonBg: 'rgba(51, 65, 85, 0.8)',
-      buttonHover: 'rgba(71, 85, 105, 0.9)',
+      buttonBg: 'rgba(52, 58, 64, 0.8)',
+      buttonHover: 'rgba(73, 80, 87, 0.9)',
       
       // الكروت
-      cardBg: 'rgba(30, 41, 59, 0.8)',
-      cardBorder: 'rgba(51, 65, 85, 0.3)',
+      cardBg: 'rgba(33, 37, 41, 0.9)',
+      cardBorder: 'rgba(245, 158, 11, 0.2)',
       
       // الألوان المميزة
-      accent: '#3b82f6',
-      accentHover: '#2563eb',
+      accent: '#fbbf24',
+      accentHover: '#f59e0b',
       success: '#22c55e',
       warning: '#fbbf24',
       error: '#f87171'
@@ -121,13 +121,13 @@ export const ThemeProvider = ({ children }) => {
     if (isDarkMode) {
       document.body.classList.add('dark-mode');
       document.body.classList.remove('light-mode');
-      document.body.style.backgroundColor = '#0f172a';
-      document.body.style.color = '#f8fafc';
+      document.body.style.backgroundColor = '#0a0a0a';
+      document.body.style.color = '#ffffff';
     } else {
       document.body.classList.add('light-mode');
       document.body.classList.remove('dark-mode');
       document.body.style.backgroundColor = '#ffffff';
-      document.body.style.color = '#0f172a';
+      document.body.style.color = '#0a0a0a';
     }
   }, [isDarkMode]);
 

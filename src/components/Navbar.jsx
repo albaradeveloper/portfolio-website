@@ -80,8 +80,8 @@ const Navbar = () => {
           ${isMobile ? 'w-[96%] max-w-[600px]' : 'w-[95%] max-w-[1200px]'}
           ${isMobile ? 'rounded-[1.25rem]' : 'rounded-[1.5rem]'}
           ${isDarkMode 
-            ? 'bg-gray-900/90 border-white/10' 
-            : 'bg-white/90 border-black/10'
+            ? 'bg-dark-900/90 border-primary-500/20' 
+            : 'bg-white/90 border-primary-500/20'
           }
           backdrop-blur-[25px] border
           shadow-[0_20px_40px_rgba(0,0,0,0.1)]
@@ -93,8 +93,8 @@ const Navbar = () => {
             onClick={() => dispatch(setActiveSection('home'))} 
             className="cursor-pointer"
           >
-            <h1 className="text-[1.75rem] font-black bg-gradient-to-r from-blue-600 via-purple-600 to-purple-700 bg-clip-text text-transparent m-0 flex items-center gap-2 tracking-tight">
-              <span className="text-[1.4rem] transition-all duration-400">🚀</span>
+            <h1 className="text-[1.75rem] font-black bg-gradient-to-r from-primary-500 via-primary-600 to-primary-700 bg-clip-text text-transparent m-0 flex items-center gap-2 tracking-tight">
+              <span className="text-[1.4rem] transition-all duration-400">⚡</span>
               AL-Bara
             </h1>
           </div>
@@ -104,8 +104,8 @@ const Navbar = () => {
             <div className={`
               flex gap-1 p-2 rounded-[1.25rem] border
               ${isDarkMode 
-                ? 'bg-gray-800/50 border-white/10' 
-                : 'bg-gray-100/50 border-black/10'
+                ? 'bg-dark-800/50 border-primary-500/20' 
+                : 'bg-primary-50/50 border-primary-500/20'
               }
               shadow-lg transition-all duration-400
             `}>
@@ -118,10 +118,10 @@ const Navbar = () => {
                     border-none cursor-pointer transition-all duration-400
                     flex items-center gap-2 whitespace-nowrap
                     ${activeSection === item.id
-                      ? 'bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-[0_8px_20px_rgba(37,99,235,0.3)]'
+                      ? 'bg-gradient-to-r from-primary-500 to-primary-600 text-dark-950 shadow-[0_8px_20px_rgba(245,158,11,0.4)] font-extrabold'
                       : isDarkMode
-                        ? 'bg-transparent text-gray-400 hover:bg-gray-700/50 hover:text-blue-400'
-                        : 'bg-transparent text-gray-600 hover:bg-gray-200/50 hover:text-blue-600'
+                        ? 'bg-transparent text-dark-100 hover:bg-dark-700/50 hover:text-primary-400'
+                        : 'bg-transparent text-dark-700 hover:bg-primary-100/50 hover:text-primary-600'
                     }
                     ${activeSection === item.id ? 'translate-y-[-2px] scale-[1.02]' : 'translate-y-0 scale-100'}
                   `}
@@ -139,8 +139,8 @@ const Navbar = () => {
                   transition-all duration-400 flex items-center justify-center
                   min-w-[2.8rem]
                   ${isDarkMode
-                    ? 'bg-gray-800/50 text-gray-400 hover:bg-gray-700/50 hover:text-yellow-400'
-                    : 'bg-gray-100/50 text-gray-600 hover:bg-gray-200/50 hover:text-blue-600'
+                    ? 'bg-dark-800/50 text-dark-100 hover:bg-dark-700/50 hover:text-primary-400'
+                    : 'bg-primary-50/50 text-dark-700 hover:bg-primary-100/50 hover:text-primary-600'
                   }
                   hover:translate-y-[-2px] hover:scale-105
                   shadow-md
@@ -161,8 +161,8 @@ const Navbar = () => {
                 flex items-center justify-center p-3 rounded-[1rem]
                 border-none cursor-pointer transition-all duration-400
                 ${isDarkMode
-                  ? 'bg-gray-800/50 text-gray-400 hover:bg-gray-700/50 hover:text-yellow-400'
-                  : 'bg-gray-100/50 text-gray-600 hover:bg-gray-200/50 hover:text-blue-600'
+                  ? 'bg-dark-800/50 text-dark-100 hover:bg-dark-700/50 hover:text-primary-400'
+                  : 'bg-primary-50/50 text-dark-700 hover:bg-primary-100/50 hover:text-primary-600'
                 }
                 hover:scale-105 shadow-md
               `}
@@ -180,8 +180,8 @@ const Navbar = () => {
                 flex items-center justify-center p-3 rounded-[1rem]
                 border-none cursor-pointer transition-all duration-400
                 ${isDarkMode
-                  ? 'bg-gray-800/50 text-gray-400 hover:bg-gray-700/50 hover:text-blue-400'
-                  : 'bg-gray-100/50 text-gray-600 hover:bg-gray-200/50 hover:text-blue-600'
+                  ? 'bg-dark-800/50 text-dark-100 hover:bg-dark-700/50 hover:text-primary-400'
+                  : 'bg-primary-50/50 text-dark-700 hover:bg-primary-100/50 hover:text-primary-600'
                 }
                 hover:scale-105 shadow-md
               `}
@@ -209,8 +209,8 @@ const Navbar = () => {
               absolute top-full left-0 right-0 mt-1 z-[1001]
               rounded-b-[1.25rem] border overflow-visible
               ${isDarkMode
-                ? 'bg-gray-900/95 border-white/10'
-                : 'bg-white/95 border-black/10'
+                ? 'bg-dark-900/95 border-primary-500/20'
+                : 'bg-white/95 border-primary-500/20'
               }
               backdrop-blur-[25px]
               shadow-[0_15px_35px_rgba(0,0,0,0.15)]
@@ -231,10 +231,10 @@ const Navbar = () => {
                     border-none cursor-pointer mb-1 last:mb-0
                     transition-all duration-300 min-h-[44px]
                     ${activeSection === item.id
-                      ? 'bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-[0_2px_8px_rgba(37,99,235,0.3)]'
+                      ? 'bg-gradient-to-r from-primary-500 to-primary-600 text-dark-950 shadow-[0_2px_8px_rgba(245,158,11,0.4)] font-extrabold'
                       : isDarkMode
-                        ? 'bg-transparent text-gray-400 hover:bg-gray-800/50 hover:text-blue-400'
-                        : 'bg-transparent text-gray-600 hover:bg-gray-100/50 hover:text-blue-600'
+                        ? 'bg-transparent text-dark-100 hover:bg-dark-800/50 hover:text-primary-400'
+                        : 'bg-transparent text-dark-700 hover:bg-primary-100/50 hover:text-primary-600'
                     }
                     ${activeSection === item.id ? '-translate-x-1' : 'translate-x-0'}
                   `}

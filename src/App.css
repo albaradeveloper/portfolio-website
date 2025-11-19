@@ -10,6 +10,12 @@
 /* Smooth scrolling */
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 90px; /* للتعويض عن ارتفاع الـ Navbar */
+}
+
+/* Ensure sections are properly positioned */
+section {
+  position: relative;
 }
 
 /* Remove default margins and paddings */
