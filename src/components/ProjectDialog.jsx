@@ -118,26 +118,26 @@ const ProjectDialog = ({ isOpen, onClose }) => {
       <div className={`
         relative w-full max-w-2xl max-h-[90vh] overflow-y-auto
         rounded-3xl shadow-2xl
-        ${isDarkMode ? 'bg-gray-900 border-gray-700' : 'bg-white border-gray-200'}
+        ${isDarkMode ? 'bg-dark-900 border-primary-500/30' : 'bg-white border-primary-500/30'}
         border-2 animate-slideDown
       `}>
         {/* Header */}
-        <div className="sticky top-0 z-10 backdrop-blur-xl bg-gradient-to-r from-blue-600 to-purple-600 p-6 rounded-t-3xl">
+        <div className="sticky top-0 z-10 backdrop-blur-xl bg-gradient-to-r from-primary-500 to-primary-700 p-6 rounded-t-3xl">
           <div className="flex items-center justify-between">
-            <h2 className="text-2xl font-black text-white flex items-center gap-3">
+            <h2 className="text-2xl font-black text-dark-950 flex items-center gap-3">
               <span className="text-3xl">🚀</span>
               ابدأ مشروعك الآن
             </h2>
             <button
               onClick={onClose}
-              className="w-10 h-10 rounded-full bg-white/20 hover:bg-white/30 flex items-center justify-center transition-all duration-300 hover:rotate-90"
+              className="w-10 h-10 rounded-full bg-dark-950/20 hover:bg-dark-950/30 flex items-center justify-center transition-all duration-300 hover:rotate-90"
             >
-              <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-6 h-6 text-dark-950" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
               </svg>
             </button>
           </div>
-          <p className="text-white/90 mt-2">املأ البيانات التالية وسأتواصل معك لمناقشة مشروعك</p>
+          <p className="text-dark-950/90 mt-2 font-semibold">املأ البيانات التالية وسأتواصل معك لمناقشة مشروعك</p>
         </div>
 
         {/* Status Message */}
@@ -159,7 +159,7 @@ const ProjectDialog = ({ isOpen, onClose }) => {
           {/* Name & Email */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
-              <label className={`block text-sm font-semibold mb-2 ${isDarkMode ? 'text-gray-300' : 'text-gray-700'}`}>
+              <label className={`block text-sm font-semibold mb-2 ${isDarkMode ? 'text-dark-100' : 'text-dark-700'}`}>
                 الاسم الكامل *
               </label>
               <input
@@ -168,12 +168,12 @@ const ProjectDialog = ({ isOpen, onClose }) => {
                 value={formData.name}
                 onChange={handleChange}
                 required
-                className={`w-full px-4 py-3 rounded-xl border-2 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all ${isDarkMode ? 'bg-gray-800 border-gray-700 text-white' : 'bg-gray-50 border-gray-300 text-gray-900'}`}
+                className={`w-full px-4 py-3 rounded-xl border-2 focus:outline-none focus:ring-2 focus:ring-primary-500 transition-all ${isDarkMode ? 'bg-dark-800 border-primary-500/30 text-white placeholder-dark-400' : 'bg-primary-50 border-primary-300 text-dark-950 placeholder-dark-500'}`}
                 placeholder="أدخل اسمك"
               />
             </div>
             <div>
-              <label className={`block text-sm font-semibold mb-2 ${isDarkMode ? 'text-gray-300' : 'text-gray-700'}`}>
+              <label className={`block text-sm font-semibold mb-2 ${isDarkMode ? 'text-dark-100' : 'text-dark-700'}`}>
                 البريد الإلكتروني *
               </label>
               <input
@@ -182,7 +182,7 @@ const ProjectDialog = ({ isOpen, onClose }) => {
                 value={formData.email}
                 onChange={handleChange}
                 required
-                className={`w-full px-4 py-3 rounded-xl border-2 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all ${isDarkMode ? 'bg-gray-800 border-gray-700 text-white' : 'bg-gray-50 border-gray-300 text-gray-900'}`}
+                className={`w-full px-4 py-3 rounded-xl border-2 focus:outline-none focus:ring-2 focus:ring-primary-500 transition-all ${isDarkMode ? 'bg-dark-800 border-primary-500/30 text-white placeholder-dark-400' : 'bg-primary-50 border-primary-300 text-dark-950 placeholder-dark-500'}`}
                 placeholder="example@email.com"
               />
             </div>
@@ -190,7 +190,7 @@ const ProjectDialog = ({ isOpen, onClose }) => {
 
           {/* Phone */}
           <div>
-            <label className={`block text-sm font-semibold mb-2 ${isDarkMode ? 'text-gray-300' : 'text-gray-700'}`}>
+            <label className={`block text-sm font-semibold mb-2 ${isDarkMode ? 'text-dark-100' : 'text-dark-700'}`}>
               رقم الهاتف *
             </label>
             <input
@@ -199,14 +199,14 @@ const ProjectDialog = ({ isOpen, onClose }) => {
               value={formData.phone}
               onChange={handleChange}
               required
-              className={`w-full px-4 py-3 rounded-xl border-2 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all ${isDarkMode ? 'bg-gray-800 border-gray-700 text-white' : 'bg-gray-50 border-gray-300 text-gray-900'}`}
+              className={`w-full px-4 py-3 rounded-xl border-2 focus:outline-none focus:ring-2 focus:ring-primary-500 transition-all ${isDarkMode ? 'bg-dark-800 border-primary-500/30 text-white placeholder-dark-400' : 'bg-primary-50 border-primary-300 text-dark-950 placeholder-dark-500'}`}
               placeholder="+249 XXX XXX XXX"
             />
           </div>
 
           {/* Service Type */}
           <div>
-            <label className={`block text-sm font-semibold mb-2 ${isDarkMode ? 'text-gray-300' : 'text-gray-700'}`}>
+            <label className={`block text-sm font-semibold mb-2 ${isDarkMode ? 'text-dark-100' : 'text-dark-700'}`}>
               نوع الخدمة *
             </label>
             <select
@@ -214,7 +214,7 @@ const ProjectDialog = ({ isOpen, onClose }) => {
               value={formData.serviceType}
               onChange={handleChange}
               required
-              className={`w-full px-4 py-3 rounded-xl border-2 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all ${isDarkMode ? 'bg-gray-800 border-gray-700 text-white' : 'bg-gray-50 border-gray-300 text-gray-900'}`}
+              className={`w-full px-4 py-3 rounded-xl border-2 focus:outline-none focus:ring-2 focus:ring-primary-500 transition-all ${isDarkMode ? 'bg-dark-800 border-primary-500/30 text-white' : 'bg-primary-50 border-primary-300 text-dark-950'}`}
             >
               <option value="">اختر نوع الخدمة</option>
               {serviceTypes.map((type, idx) => (
@@ -226,7 +226,7 @@ const ProjectDialog = ({ isOpen, onClose }) => {
           {/* Budget & Timeline */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
-              <label className={`block text-sm font-semibold mb-2 ${isDarkMode ? 'text-gray-300' : 'text-gray-700'}`}>
+              <label className={`block text-sm font-semibold mb-2 ${isDarkMode ? 'text-dark-100' : 'text-dark-700'}`}>
                 الميزانية المتوقعة *
               </label>
               <select
@@ -234,7 +234,7 @@ const ProjectDialog = ({ isOpen, onClose }) => {
                 value={formData.budget}
                 onChange={handleChange}
                 required
-                className={`w-full px-4 py-3 rounded-xl border-2 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all ${isDarkMode ? 'bg-gray-800 border-gray-700 text-white' : 'bg-gray-50 border-gray-300 text-gray-900'}`}
+                className={`w-full px-4 py-3 rounded-xl border-2 focus:outline-none focus:ring-2 focus:ring-primary-500 transition-all ${isDarkMode ? 'bg-dark-800 border-primary-500/30 text-white' : 'bg-primary-50 border-primary-300 text-dark-950'}`}
               >
                 <option value="">اختر الميزانية</option>
                 {budgetRanges.map((range, idx) => (
@@ -243,7 +243,7 @@ const ProjectDialog = ({ isOpen, onClose }) => {
               </select>
             </div>
             <div>
-              <label className={`block text-sm font-semibold mb-2 ${isDarkMode ? 'text-gray-300' : 'text-gray-700'}`}>
+              <label className={`block text-sm font-semibold mb-2 ${isDarkMode ? 'text-dark-100' : 'text-dark-700'}`}>
                 المدة الزمنية المتوقعة *
               </label>
               <select
@@ -251,7 +251,7 @@ const ProjectDialog = ({ isOpen, onClose }) => {
                 value={formData.timeline}
                 onChange={handleChange}
                 required
-                className={`w-full px-4 py-3 rounded-xl border-2 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all ${isDarkMode ? 'bg-gray-800 border-gray-700 text-white' : 'bg-gray-50 border-gray-300 text-gray-900'}`}
+                className={`w-full px-4 py-3 rounded-xl border-2 focus:outline-none focus:ring-2 focus:ring-primary-500 transition-all ${isDarkMode ? 'bg-dark-800 border-primary-500/30 text-white' : 'bg-primary-50 border-primary-300 text-dark-950'}`}
               >
                 <option value="">اختر المدة</option>
                 {timelines.map((time, idx) => (
@@ -263,7 +263,7 @@ const ProjectDialog = ({ isOpen, onClose }) => {
 
           {/* Description */}
           <div>
-            <label className={`block text-sm font-semibold mb-2 ${isDarkMode ? 'text-gray-300' : 'text-gray-700'}`}>
+            <label className={`block text-sm font-semibold mb-2 ${isDarkMode ? 'text-dark-100' : 'text-dark-700'}`}>
               وصف المشروع *
             </label>
             <textarea
@@ -272,7 +272,7 @@ const ProjectDialog = ({ isOpen, onClose }) => {
               onChange={handleChange}
               required
               rows="4"
-              className={`w-full px-4 py-3 rounded-xl border-2 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all resize-none ${isDarkMode ? 'bg-gray-800 border-gray-700 text-white' : 'bg-gray-50 border-gray-300 text-gray-900'}`}
+              className={`w-full px-4 py-3 rounded-xl border-2 focus:outline-none focus:ring-2 focus:ring-primary-500 transition-all resize-none ${isDarkMode ? 'bg-dark-800 border-primary-500/30 text-white placeholder-dark-400' : 'bg-primary-50 border-primary-300 text-dark-950 placeholder-dark-500'}`}
               placeholder="اكتب وصفاً تفصيلياً لمشروعك..."
             />
           </div>
@@ -282,10 +282,10 @@ const ProjectDialog = ({ isOpen, onClose }) => {
             type="submit"
             disabled={isSubmitting}
             className={`
-              w-full py-4 rounded-xl font-bold text-lg
-              bg-gradient-to-r from-blue-600 to-purple-600
-              text-white shadow-lg
-              hover:shadow-xl hover:-translate-y-1
+              w-full py-4 rounded-xl font-black text-lg
+              bg-gradient-to-r from-primary-500 to-primary-700
+              text-dark-950 shadow-[0_8px_25px_rgba(245,158,11,0.4)]
+              hover:shadow-[0_15px_35px_rgba(245,158,11,0.5)] hover:-translate-y-1
               transition-all duration-300
               disabled:opacity-50 disabled:cursor-not-allowed
               ${isSubmitting ? 'animate-pulse' : ''}
