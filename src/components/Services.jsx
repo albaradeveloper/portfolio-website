@@ -61,34 +61,34 @@ const Services = () => {
     <section className={`
       min-h-screen pt-24 relative overflow-hidden
       ${isDarkMode 
-        ? 'bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900' 
-        : 'bg-gradient-to-br from-slate-50 via-slate-100 to-purple-50'
+        ? 'bg-gradient-to-br from-dark-950 via-dark-900 to-dark-950' 
+        : 'bg-gradient-to-br from-white via-primary-50 to-primary-100'
       }
     `}>
       {/* Background decorative elements */}
-      <div className="absolute top-[10%] right-[10%] w-[300px] h-[300px] bg-gradient-to-br from-blue-500/10 to-purple-500/10 rounded-full blur-[40px]" />
-      <div className="absolute bottom-[20%] left-[5%] w-[200px] h-[200px] bg-gradient-to-br from-purple-500/10 to-pink-500/10 rounded-full blur-[30px]" />
+      <div className="absolute top-[10%] right-[10%] w-[300px] h-[300px] bg-gradient-to-br from-primary-400/15 to-primary-600/10 rounded-full blur-[40px]" />
+      <div className="absolute bottom-[20%] left-[5%] w-[200px] h-[200px] bg-gradient-to-br from-primary-500/10 to-primary-400/15 rounded-full blur-[30px]" />
       
       <div className="max-w-7xl mx-auto px-6 pt-12 pb-20 relative z-10">
         {/* Header */}
         <div className="text-center mb-16">
           <span className={`
             inline-block px-6 py-3 rounded-full text-sm font-semibold mb-6
-            bg-gradient-to-r from-blue-500/10 to-purple-500/10
+            bg-gradient-to-r from-primary-400/15 to-primary-600/10
             border backdrop-blur-sm
-            ${isDarkMode ? 'text-blue-400 border-blue-500/20' : 'text-blue-700 border-blue-500/20'}
+            ${isDarkMode ? 'text-primary-400 border-primary-500/30' : 'text-primary-700 border-primary-500/30'}
           `}>
             الخدمات المقدمة ⚡
           </span>
           
-          <h2 className={`text-5xl md:text-6xl lg:text-7xl font-black mb-6 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
-            <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-purple-700 bg-clip-text text-transparent">
+          <h2 className={`text-5xl md:text-6xl lg:text-7xl font-black mb-6 ${isDarkMode ? 'text-white' : 'text-dark-950'}`}>
+            <span className="bg-gradient-to-r from-primary-500 via-primary-600 to-primary-700 bg-clip-text text-transparent">
               خدماتي
             </span>{' '}
             المتميزة
           </h2>
           
-          <p className={`text-xl md:text-2xl max-w-3xl mx-auto ${isDarkMode ? 'text-gray-300' : 'text-gray-700'}`}>
+          <p className={`text-xl md:text-2xl max-w-3xl mx-auto ${isDarkMode ? 'text-dark-100' : 'text-dark-700'}`}>
             أقدم مجموعة متنوعة من الخدمات التقنية المتخصصة لتلبية احتياجاتك
           </p>
         </div>
@@ -104,7 +104,7 @@ const Services = () => {
                 hover:-translate-y-3 hover:scale-105
                 transition-all duration-300
                 flex flex-col items-center text-center
-                ${isDarkMode ? 'bg-gray-800/50 border-gray-700' : 'bg-white/50 border-gray-200'}
+                ${isDarkMode ? 'bg-dark-800/50 border-primary-500/20' : 'bg-white/50 border-primary-500/20'}
               `}
             >
               {/* Icon */}
@@ -117,12 +117,12 @@ const Services = () => {
               </div>
               
               {/* Title */}
-              <h3 className={`text-2xl font-black mb-4 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
+              <h3 className={`text-2xl font-black mb-4 ${isDarkMode ? 'text-white' : 'text-dark-950'}`}>
                 {service.title}
               </h3>
               
               {/* Description */}
-              <p className={`mb-6 text-lg leading-relaxed ${isDarkMode ? 'text-gray-400' : 'text-gray-600'}`}>
+              <p className={`mb-6 text-lg leading-relaxed ${isDarkMode ? 'text-dark-200' : 'text-dark-600'}`}>
                 {service.description}
               </p>
               
@@ -133,7 +133,7 @@ const Services = () => {
                     <span className={`
                       w-2 h-2 rounded-full bg-gradient-to-r ${service.gradient}
                     `} />
-                    <span className={`text-base ${isDarkMode ? 'text-gray-300' : 'text-gray-700'}`}>
+                    <span className={`text-base ${isDarkMode ? 'text-dark-100' : 'text-dark-700'}`}>
                       {feature}
                     </span>
                   </li>
@@ -157,18 +157,18 @@ const Services = () => {
         <div className={`
           mt-20 backdrop-blur-xl rounded-3xl p-12 text-center
           border shadow-2xl
-          ${isDarkMode ? 'bg-gray-800/50 border-gray-700' : 'bg-white/50 border-gray-200'}
+          ${isDarkMode ? 'bg-dark-800/50 border-primary-500/20' : 'bg-white/50 border-primary-500/20'}
         `}>
-          <h3 className={`text-3xl font-black mb-4 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
+          <h3 className={`text-3xl font-black mb-4 ${isDarkMode ? 'text-white' : 'text-dark-950'}`}>
             هل لديك مشروع في ذهنك؟
           </h3>
-          <p className={`text-lg mb-8 ${isDarkMode ? 'text-gray-300' : 'text-gray-700'}`}>
+          <p className={`text-lg mb-8 ${isDarkMode ? 'text-dark-100' : 'text-dark-700'}`}>
             دعنا نحول فكرتك إلى واقع رقمي مذهل
           </p>
           <button 
             onClick={() => setIsDialogOpen(true)}
             className="
-              bg-gradient-to-r from-blue-600 via-purple-600 to-purple-700
+              bg-gradient-to-r from-primary-500 via-primary-600 to-primary-700
               text-white px-12 py-5 rounded-xl font-bold text-lg
               shadow-[0_8px_25px_rgba(37,99,235,0.3)]
               hover:shadow-[0_15px_35px_rgba(37,99,235,0.4)]

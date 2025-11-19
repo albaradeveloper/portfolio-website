@@ -62,34 +62,34 @@ const Contact = () => {
     <section className={`
       min-h-screen pt-24 relative overflow-hidden
       ${isDarkMode 
-        ? 'bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900' 
-        : 'bg-gradient-to-br from-slate-50 via-slate-100 to-purple-50'
+        ? 'bg-gradient-to-br from-dark-950 via-dark-900 to-dark-950' 
+        : 'bg-gradient-to-br from-white via-primary-50 to-primary-100'
       }
     `}>
       {/* Background decorative elements */}
-      <div className="absolute top-[10%] right-[10%] w-[300px] h-[300px] bg-gradient-to-br from-blue-500/10 to-purple-500/10 rounded-full blur-[40px]" />
-      <div className="absolute bottom-[20%] left-[5%] w-[200px] h-[200px] bg-gradient-to-br from-purple-500/10 to-pink-500/10 rounded-full blur-[30px]" />
+      <div className="absolute top-[10%] right-[10%] w-[300px] h-[300px] bg-gradient-to-br from-primary-400/15 to-primary-600/10 rounded-full blur-[40px]" />
+      <div className="absolute bottom-[20%] left-[5%] w-[200px] h-[200px] bg-gradient-to-br from-primary-500/10 to-primary-400/15 rounded-full blur-[30px]" />
       
       <div className="max-w-5xl mx-auto px-6 pt-12 pb-20 relative z-10">
         {/* Header */}
         <div className="text-center mb-16">
           <span className={`
             inline-block px-6 py-3 rounded-full text-sm font-semibold mb-6
-            bg-gradient-to-r from-blue-500/10 to-purple-500/10
+            bg-gradient-to-r from-primary-400/15 to-primary-600/10
             border backdrop-blur-sm
-            ${isDarkMode ? 'text-blue-400 border-blue-500/20' : 'text-blue-700 border-blue-500/20'}
+            ${isDarkMode ? 'text-primary-400 border-primary-500/30' : 'text-primary-700 border-primary-500/30'}
           `}>
             تواصل معي 📧
           </span>
           
-          <h2 className={`text-5xl md:text-6xl lg:text-7xl font-black mb-6 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
-            <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-purple-700 bg-clip-text text-transparent">
+          <h2 className={`text-5xl md:text-6xl lg:text-7xl font-black mb-6 ${isDarkMode ? 'text-white' : 'text-dark-950'}`}>
+            <span className="bg-gradient-to-r from-primary-500 via-primary-600 to-primary-700 bg-clip-text text-transparent">
               دعنا نتحدث
             </span>{' '}
             عن مشروعك
           </h2>
           
-          <p className={`text-xl md:text-2xl max-w-3xl mx-auto ${isDarkMode ? 'text-gray-300' : 'text-gray-700'}`}>
+          <p className={`text-xl md:text-2xl max-w-3xl mx-auto ${isDarkMode ? 'text-dark-100' : 'text-dark-700'}`}>
             أنا هنا للإجابة على استفساراتك ومساعدتك في تحقيق أهدافك
           </p>
         </div>
@@ -98,7 +98,7 @@ const Contact = () => {
         <div className={`
           backdrop-blur-xl rounded-3xl p-10 mb-12
           border shadow-2xl
-          ${isDarkMode ? 'bg-gray-800/50 border-gray-700' : 'bg-white/50 border-gray-200'}
+          ${isDarkMode ? 'bg-dark-800/50 border-primary-500/20' : 'bg-white/50 border-primary-500/20'}
         `}>
           {/* Status Message */}
           {status.message && (
@@ -117,7 +117,7 @@ const Contact = () => {
             {/* Name and Email */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
-                <label className={`block text-base font-semibold mb-2 ${isDarkMode ? 'text-gray-300' : 'text-gray-700'}`}>
+                <label className={`block text-base font-semibold mb-2 ${isDarkMode ? 'text-dark-100' : 'text-dark-700'}`}>
                   الاسم الكامل *
                 </label>
                 <input
@@ -131,8 +131,8 @@ const Contact = () => {
                     focus:outline-none focus:ring-2 focus:ring-blue-500
                     transition-all duration-300
                     ${isDarkMode 
-                      ? 'bg-gray-900/50 border-gray-700 text-white placeholder-gray-500' 
-                      : 'bg-white border-gray-300 text-gray-900 placeholder-gray-400'
+                      ? 'bg-dark-900/50 border-primary-700 text-white placeholder-gray-500' 
+                      : 'bg-white border-primary-300 text-dark-950 placeholder-gray-400'
                     }
                   `}
                   placeholder="أدخل اسمك الكامل"
@@ -140,7 +140,7 @@ const Contact = () => {
               </div>
               
               <div>
-                <label className={`block text-base font-semibold mb-2 ${isDarkMode ? 'text-gray-300' : 'text-gray-700'}`}>
+                <label className={`block text-base font-semibold mb-2 ${isDarkMode ? 'text-dark-100' : 'text-dark-700'}`}>
                   البريد الإلكتروني *
                 </label>
                 <input
@@ -154,8 +154,8 @@ const Contact = () => {
                     focus:outline-none focus:ring-2 focus:ring-blue-500
                     transition-all duration-300
                     ${isDarkMode 
-                      ? 'bg-gray-900/50 border-gray-700 text-white placeholder-gray-500' 
-                      : 'bg-white border-gray-300 text-gray-900 placeholder-gray-400'
+                      ? 'bg-dark-900/50 border-primary-700 text-white placeholder-gray-500' 
+                      : 'bg-white border-primary-300 text-dark-950 placeholder-gray-400'
                     }
                   `}
                   placeholder="example@email.com"
@@ -165,7 +165,7 @@ const Contact = () => {
 
             {/* Subject */}
             <div>
-              <label className={`block text-base font-semibold mb-2 ${isDarkMode ? 'text-gray-300' : 'text-gray-700'}`}>
+              <label className={`block text-base font-semibold mb-2 ${isDarkMode ? 'text-dark-100' : 'text-dark-700'}`}>
                 الموضوع *
               </label>
               <input
@@ -179,8 +179,8 @@ const Contact = () => {
                   focus:outline-none focus:ring-2 focus:ring-blue-500
                   transition-all duration-300
                   ${isDarkMode 
-                    ? 'bg-gray-900/50 border-gray-700 text-white placeholder-gray-500' 
-                    : 'bg-white border-gray-300 text-gray-900 placeholder-gray-400'
+                    ? 'bg-dark-900/50 border-primary-700 text-white placeholder-gray-500' 
+                    : 'bg-white border-primary-300 text-dark-950 placeholder-gray-400'
                   }
                 `}
                 placeholder="ما هو موضوع رسالتك؟"
@@ -189,7 +189,7 @@ const Contact = () => {
 
             {/* Message */}
             <div>
-              <label className={`block text-base font-semibold mb-2 ${isDarkMode ? 'text-gray-300' : 'text-gray-700'}`}>
+              <label className={`block text-base font-semibold mb-2 ${isDarkMode ? 'text-dark-100' : 'text-dark-700'}`}>
                 الرسالة *
               </label>
               <textarea
@@ -203,8 +203,8 @@ const Contact = () => {
                   focus:outline-none focus:ring-2 focus:ring-blue-500
                   transition-all duration-300 resize-none
                   ${isDarkMode 
-                    ? 'bg-gray-900/50 border-gray-700 text-white placeholder-gray-500' 
-                    : 'bg-white border-gray-300 text-gray-900 placeholder-gray-400'
+                    ? 'bg-dark-900/50 border-primary-700 text-white placeholder-gray-500' 
+                    : 'bg-white border-primary-300 text-dark-950 placeholder-gray-400'
                   }
                 `}
                 placeholder="اكتب رسالتك هنا..."
@@ -217,7 +217,7 @@ const Contact = () => {
               disabled={isSubmitting}
               className={`
                 w-full py-5 rounded-xl font-bold text-lg
-                bg-gradient-to-r from-blue-600 via-purple-600 to-purple-700
+                bg-gradient-to-r from-primary-500 via-primary-600 to-primary-700
                 text-white shadow-[0_8px_25px_rgba(37,99,235,0.3)]
                 hover:shadow-[0_15px_35px_rgba(37,99,235,0.4)]
                 hover:-translate-y-1 transition-all duration-300
@@ -242,11 +242,11 @@ const Contact = () => {
               border shadow-xl
               hover:-translate-y-2 hover:scale-105
               transition-all duration-300
-              ${isDarkMode ? 'bg-gray-800/50 border-gray-700' : 'bg-white/50 border-gray-200'}
+              ${isDarkMode ? 'bg-dark-800/50 border-primary-500/20' : 'bg-white/50 border-primary-500/20'}
             `}
           >
             <div className="text-5xl mb-4 group-hover:scale-110 transition-transform">📱</div>
-            <h4 className={`text-xl font-black mb-2 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
+            <h4 className={`text-xl font-black mb-2 ${isDarkMode ? 'text-white' : 'text-dark-950'}`}>
               واتساب
             </h4>
             <p className="text-green-600 font-semibold">+249926699368</p>
@@ -260,11 +260,11 @@ const Contact = () => {
               border shadow-xl
               hover:-translate-y-2 hover:scale-105
               transition-all duration-300
-              ${isDarkMode ? 'bg-gray-800/50 border-gray-700' : 'bg-white/50 border-gray-200'}
+              ${isDarkMode ? 'bg-dark-800/50 border-primary-500/20' : 'bg-white/50 border-primary-500/20'}
             `}
           >
             <div className="text-5xl mb-4 group-hover:scale-110 transition-transform">📧</div>
-            <h4 className={`text-xl font-black mb-2 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
+            <h4 className={`text-xl font-black mb-2 ${isDarkMode ? 'text-white' : 'text-dark-950'}`}>
               البريد الإلكتروني
             </h4>
             <p className="text-blue-600 font-semibold text-sm">braaomer98@gmail.com</p>
@@ -274,10 +274,10 @@ const Contact = () => {
           <div className={`
             backdrop-blur-xl rounded-2xl p-8 text-center
             border shadow-xl
-            ${isDarkMode ? 'bg-gray-800/50 border-gray-700' : 'bg-white/50 border-gray-200'}
+            ${isDarkMode ? 'bg-dark-800/50 border-primary-500/20' : 'bg-white/50 border-primary-500/20'}
           `}>
             <div className="text-5xl mb-4">📍</div>
-            <h4 className={`text-xl font-black mb-2 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
+            <h4 className={`text-xl font-black mb-2 ${isDarkMode ? 'text-white' : 'text-dark-950'}`}>
               الموقع
             </h4>
             <p className="text-purple-600 font-semibold">الخرطوم، السودان</p>

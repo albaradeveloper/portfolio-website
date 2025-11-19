@@ -55,21 +55,21 @@ const Footer = () => {
     <footer className={`
       relative overflow-hidden border-t
       ${isDarkMode 
-        ? 'bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 border-gray-800' 
-        : 'bg-gradient-to-br from-slate-50 via-slate-100 to-purple-50 border-gray-200'
+        ? 'bg-gradient-to-br from-dark-950 via-dark-900 to-dark-950 border-primary-500/20' 
+        : 'bg-gradient-to-br from-white via-primary-50 to-primary-100 border-primary-500/20'
       }
     `}>
       {/* Background decorative element */}
-      <div className="absolute top-0 right-[10%] w-[200px] h-[200px] bg-gradient-to-br from-blue-500/5 to-purple-500/5 rounded-full blur-[40px]" />
+      <div className="absolute top-0 right-[10%] w-[200px] h-[200px] bg-gradient-to-br from-primary-400/10 to-primary-500/5 rounded-full blur-[40px]" />
       
       <div className="max-w-7xl mx-auto px-6 py-16 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
           {/* About Section */}
           <div>
-            <h3 className="text-2xl font-black mb-4 bg-gradient-to-r from-blue-600 to-purple-700 bg-clip-text text-transparent">
+            <h3 className="text-2xl font-black mb-4 bg-gradient-to-r from-primary-500 to-primary-700 bg-clip-text text-transparent">
               AL-Bara Dev
             </h3>
-            <p className={`leading-relaxed mb-6 ${isDarkMode ? 'text-gray-400' : 'text-gray-600'}`}>
+            <p className={`leading-relaxed mb-6 ${isDarkMode ? 'text-dark-200' : 'text-dark-600'}`}>
               مطور ويب متخصص في بناء تطبيقات ومواقع حديثة باستخدام أحدث التقنيات. 
               أسعى لتقديم حلول مبتكرة وتجارب مستخدم استثنائية.
             </p>
@@ -99,7 +99,7 @@ const Footer = () => {
 
           {/* Quick Links */}
           <div>
-            <h4 className={`text-xl font-black mb-6 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
+            <h4 className={`text-xl font-black mb-6 ${isDarkMode ? 'text-white' : 'text-dark-950'}`}>
               روابط سريعة
             </h4>
             <ul className="space-y-3">
@@ -111,10 +111,10 @@ const Footer = () => {
                       text-right transition-all duration-300
                       hover:translate-x-2
                       ${activeSection === link.id
-                        ? 'text-blue-600 font-semibold'
+                        ? 'text-primary-600 font-semibold'
                         : isDarkMode 
-                          ? 'text-gray-400 hover:text-blue-400' 
-                          : 'text-gray-600 hover:text-blue-600'
+                          ? 'text-dark-200 hover:text-primary-400' 
+                          : 'text-dark-600 hover:text-primary-600'
                       }
                     `}
                   >
@@ -127,7 +127,7 @@ const Footer = () => {
 
           {/* Contact Info */}
           <div>
-            <h4 className={`text-xl font-black mb-6 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
+            <h4 className={`text-xl font-black mb-6 ${isDarkMode ? 'text-white' : 'text-dark-950'}`}>
               معلومات التواصل
             </h4>
             <ul className="space-y-5">
@@ -138,12 +138,12 @@ const Footer = () => {
                   </svg>
                 </div>
                 <div>
-                  <p className={`text-base font-bold mb-1 ${isDarkMode ? 'text-gray-200' : 'text-gray-800'}`}>
+                  <p className={`text-base font-bold mb-1 ${isDarkMode ? 'text-dark-100' : 'text-dark-800'}`}>
                     البريد الإلكتروني
                   </p>
                   <a 
                     href="mailto:braaomer98@gmail.com"
-                    className="text-base text-blue-600 hover:text-blue-700 transition-colors hover:underline"
+                    className="text-base text-primary-600 hover:text-blue-700 transition-colors hover:underline"
                   >
                     braaomer98@gmail.com
                   </a>
@@ -156,7 +156,7 @@ const Footer = () => {
                   </svg>
                 </div>
                 <div>
-                  <p className={`text-base font-bold mb-1 ${isDarkMode ? 'text-gray-200' : 'text-gray-800'}`}>
+                  <p className={`text-base font-bold mb-1 ${isDarkMode ? 'text-dark-100' : 'text-dark-800'}`}>
                     الهاتف
                   </p>
                   <a 
@@ -174,10 +174,10 @@ const Footer = () => {
                   </svg>
                 </div>
                 <div>
-                  <p className={`text-base font-bold mb-1 ${isDarkMode ? 'text-gray-200' : 'text-gray-800'}`}>
+                  <p className={`text-base font-bold mb-1 ${isDarkMode ? 'text-dark-100' : 'text-dark-800'}`}>
                     الموقع
                   </p>
-                  <p className={`text-base ${isDarkMode ? 'text-gray-400' : 'text-gray-600'}`}>
+                  <p className={`text-base ${isDarkMode ? 'text-dark-200' : 'text-dark-600'}`}>
                     الخرطوم، السودان
                   </p>
                 </div>
@@ -189,12 +189,12 @@ const Footer = () => {
         {/* Bottom Bar */}
         <div className={`
           pt-8 border-t text-center
-          ${isDarkMode ? 'border-gray-800' : 'border-gray-200'}
+          ${isDarkMode ? 'border-primary-500/20' : 'border-primary-500/20'}
         `}>
-          <p className={`text-sm ${isDarkMode ? 'text-gray-400' : 'text-gray-600'}`}>
+          <p className={`text-sm ${isDarkMode ? 'text-dark-200' : 'text-dark-600'}`}>
             © {currentYear} AL-Bara Dev. جميع الحقوق محفوظة.
           </p>
-          <p className={`text-xs mt-2 ${isDarkMode ? 'text-gray-500' : 'text-gray-500'}`}>
+          <p className={`text-xs mt-2 ${isDarkMode ? 'text-dark-400' : 'text-dark-400'}`}>
             صُنع بـ ❤️ في السودان
           </p>
         </div>
